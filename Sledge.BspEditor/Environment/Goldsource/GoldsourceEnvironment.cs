@@ -35,7 +35,7 @@ namespace Sledge.BspEditor.Environment.Goldsource
         private readonly Lazy<Task<GameData>> _gameData;
 
         public string Engine => "Goldsource";
-        public string ID { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
 
         public string BaseDirectory { get; set; }

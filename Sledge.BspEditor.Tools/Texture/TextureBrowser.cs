@@ -549,7 +549,7 @@ namespace Sledge.BspEditor.Tools.Texture
 
         private void SetMemory<T>(string name, T value)
         {
-            var id = _document?.Environment?.ID;
+            var id = _document?.Environment?.Id;
             if (id == null) return;
             if (!_memory.TryGetValue(id, out var m)) _memory[id] = m = new Memory();
             m.Set(name, value);
@@ -557,7 +557,7 @@ namespace Sledge.BspEditor.Tools.Texture
 
         private T GetMemory<T>(string name, T def = default(T))
         {
-            var id = _document?.Environment?.ID;
+            var id = _document?.Environment?.Id;
             if (id == null) return def;
             if (_memory.TryGetValue(id, out var m)) return m.Get(name, def);
             return def;

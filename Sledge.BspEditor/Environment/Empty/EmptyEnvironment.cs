@@ -12,7 +12,7 @@ namespace Sledge.BspEditor.Environment.Empty
     public class EmptyEnvironment : IEnvironment
     {
         public string Engine => "None";
-        public string ID => "Empty";
+        public string Id => "Empty";
         public string Name => "Empty";
         public IFile Root => null;
         public IEnumerable<string> Directories => new string[0];

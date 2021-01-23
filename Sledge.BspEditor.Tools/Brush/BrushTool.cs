@@ -372,7 +372,7 @@ namespace Sledge.BspEditor.Tools.Brush
                 var t = await tc.GetTextureItem(f.Texture.Name);
                 var transparent = opacity < 0.95f || t?.Flags.HasFlag(TextureFlags.Transparent) == true;
 
-                var texture = t == null ? string.Empty : $"{document.Environment.ID}::{f.Texture.Name}";
+                var texture = t == null ? string.Empty : $"{document.Environment.Id}::{f.Texture.Name}";
 
                 groups.Add(transparent
                     ? new BufferGroup(PipelineType.TexturedAlpha, CameraType.Perspective, f.Origin, texture, texOffset, texInd)

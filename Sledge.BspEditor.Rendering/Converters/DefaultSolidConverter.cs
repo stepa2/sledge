@@ -184,7 +184,7 @@ namespace Sledge.BspEditor.Rendering.Converters
                 var t = await tc.GetTextureItem(f.Texture.Name);
                 var transparent = entityHasTransparency || opacity < 0.95f || t?.Flags.HasFlag(TextureFlags.Transparent) == true;
 
-                var texture = t == null ? string.Empty : $"{document.Environment.ID}::{f.Texture.Name}";
+                var texture = t == null ? string.Empty : $"{document.Environment.Id}::{f.Texture.Name}";
 
                 var group = new BufferGroup(
                     pipeline == PipelineType.TexturedOpaque && transparent ? PipelineType.TexturedAlpha : pipeline,

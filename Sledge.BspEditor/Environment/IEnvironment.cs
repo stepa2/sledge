@@ -21,7 +21,7 @@ namespace Sledge.BspEditor.Environment
         /// <summary>
         /// The unique ID for this environment
         /// </summary>
-        string ID { get; }
+        string Id { get; }
 
         /// <summary>
         /// The name of this environment

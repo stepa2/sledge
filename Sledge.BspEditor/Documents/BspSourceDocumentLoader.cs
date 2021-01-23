@@ -252,7 +252,7 @@ namespace Sledge.BspEditor.Documents
             {
                 FileName = doc.FileName
             };
-            so.Set("Environment", doc.Environment.ID);
+            so.Set("Environment", doc.Environment.Id);
             return so;
         }
 
@@ -264,7 +264,7 @@ namespace Sledge.BspEditor.Documents
             if (String.IsNullOrWhiteSpace(fileName) || String.IsNullOrWhiteSpace(envId)) return null;
             
             var env = _environments.Value.GetEnvironment(envId);
-            if (env?.ID == null) return null;
+            if (env?.Id == null) return null;
 
             if (!File.Exists(fileName)) return null;
 

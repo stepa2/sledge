@@ -35,7 +35,7 @@ namespace Sledge.BspEditor.Environment.Goldsource
         {
             var gse = new GoldsourceEnvironment()
             {
-                ID = environment.ID,
+                Id = environment.ID,
                 Name = environment.Name,
                 BaseDirectory = GetVal(environment.Properties, "BaseDirectory", ""),
                 GameDirectory = GetVal(environment.Properties, "GameDirectory", ""),
@@ -80,7 +80,7 @@ namespace Sledge.BspEditor.Environment.Goldsource
             var env = (GoldsourceEnvironment) environment;
             var se = new SerialisedEnvironment
             {
-                ID = environment.ID,
+                ID = environment.Id,
                 Name = environment.Name,
                 Type = TypeName,
                 Properties =

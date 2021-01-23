@@ -86,35 +86,31 @@ namespace Sledge.BspEditor.Environment.Controls
 
         private void AddEnvironment(object sender, EventArgs e)
         {
-            var factory = (sender as ToolStripItem)?.Tag as IEnvironmentFactory;
-            if (factory != null && _value != null)
+            if (!((sender as ToolStripItem)?.Tag is IEnvironmentFactory factory) || _value == null) return;
+            
+            var newEnv = new SerialisedEnvironment
             {
-                var newEnv = new SerialisedEnvironment
-                {
-                    ID = Guid.NewGuid().ToString("N"),
-                    Name = "New Environment",
-                    Type = factory.TypeName
-                };
-                _value.Add(newEnv);
-                UpdateTreeNodes();
+                ID = Guid.NewGuid().ToString("N"),
+                Name = "New Environment",
+                Type = factory.TypeName
+            };
+            _value.Add(newEnv);
+            UpdateTreeNodes();
 
-                var nodeToSelect = treEnvironments.Nodes.OfType<TreeNode>().SelectMany(x => x.Nodes.OfType<TreeNode>()).FirstOrDefault(x => x.Tag == newEnv);
-                if (nodeToSelect != null) treEnvironments.SelectedNode = nodeToSelect;
+            var nodeToSelect = treEnvironments.Nodes.OfType<TreeNode>().SelectMany(x => x.Nodes.OfType<TreeNode>()).FirstOrDefault(x => x.Tag == newEnv);
+            if (nodeToSelect != null) treEnvironments.SelectedNode = nodeToSelect;
 
-                OnValueChanged?.Invoke(this, Key);
-            }
+            OnValueChanged?.Invoke(this, Key);
         }
 
         private void RemoveEnvironment(object sender, EventArgs e)
         {
-            var node = treEnvironments.SelectedNode?.Tag as SerialisedEnvironment;
-            if (node != null && _value != null)
-            {
-                _value.Remove(node);
-                UpdateTreeNodes();
-                OnValueChanged?.Invoke(this, Key);
-                EnvironmentSelected(null, null);
-            }
+            if (!(treEnvironments.SelectedNode?.Tag is SerialisedEnvironment node) || _value == null) return;
+            
+            _value.Remove(node);
+            UpdateTreeNodes();
+            OnValueChanged?.Invoke(this, Key);
+            EnvironmentSelected(null, null);
         }
 
         private IEnvironmentEditor _currentEditor = null;
@@ -128,50 +124,45 @@ namespace Sledge.BspEditor.Environment.Controls
             _currentEditor = null;
             pnlSettings.Controls.Clear();
 
-            var node = e?.Node?.Tag as SerialisedEnvironment;
-            if (node != null)
+            if (!(e?.Node?.Tag is SerialisedEnvironment node)) return;
+            
+            var factory = _factories.FirstOrDefault(x => x.TypeName == node.Type);
+            if (factory == null) return;
+            
+            var fp = new FlowLayoutPanel
             {
-                var factory = _factories.FirstOrDefault(x => x.TypeName == node.Type);
-                if (factory != null)
-                {
-                    var fp = new FlowLayoutPanel
-                    {
-                        Height = 30,
-                        Width = 400,
-                        FlowDirection = FlowDirection.LeftToRight,
-                        Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top
-                    };
-                    fp.Controls.Add(_nameLabel);
-                    fp.Controls.Add(_nameBox);
-                    pnlSettings.Controls.Add(fp);
+                Height = 30,
+                Width = 400,
+                FlowDirection = FlowDirection.LeftToRight,
+                Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top
+            };
+            fp.Controls.Add(_nameLabel);
+            fp.Controls.Add(_nameBox);
+            pnlSettings.Controls.Add(fp);
 
-                    _nameBox.Text = node.Name;
+            _nameBox.Text = node.Name;
 
-                    var des = factory.Deserialise(node);
-                    _currentEditor = factory.CreateEditor();
-                    translate.Translate(_currentEditor);
-                    pnlSettings.Controls.Add(_currentEditor.Control);
-                    _currentEditor.Environment = des;
-                    _currentEditor.EnvironmentChanged += UpdateEnvironment;
-                }
-            }
+            var des = factory.Deserialise(node);
+            _currentEditor = factory.CreateEditor();
+            translate.Translate(_currentEditor);
+            pnlSettings.Controls.Add(_currentEditor.Control);
+            _currentEditor.Environment = des;
+            _currentEditor.EnvironmentChanged += UpdateEnvironment;
         }
 
         private void UpdateEnvironment(object sender, EventArgs e)
         {
-            var node = treEnvironments.SelectedNode?.Tag as SerialisedEnvironment;
-            if (node != null && _currentEditor != null)
+            if (!(treEnvironments.SelectedNode?.Tag is SerialisedEnvironment node) || _currentEditor == null) return;
+            
+            treEnvironments.SelectedNode.Text = _nameBox.Text;
+            var factory = _factories.FirstOrDefault(x => x.TypeName == node.Type);
+            if (factory != null)
             {
-                treEnvironments.SelectedNode.Text = _nameBox.Text;
-                var factory = _factories.FirstOrDefault(x => x.TypeName == node.Type);
-                if (factory != null)
-                {
-                    var ser = factory.Serialise(_currentEditor.Environment);
-                    node.Name = _nameBox.Text;
-                    node.Properties = ser.Properties;
-                }
-                OnValueChanged?.Invoke(this, Key);
+                var ser = factory.Serialise(_currentEditor.Environment);
+                node.Name = _nameBox.Text;
+                node.Properties = ser.Properties;
             }
+            OnValueChanged?.Invoke(this, Key);
         }
     }
 }

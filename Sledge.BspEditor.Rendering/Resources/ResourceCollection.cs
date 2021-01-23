@@ -51,8 +51,8 @@ namespace Sledge.BspEditor.Rendering.Resources
         public async Task<IModel> GetModel(IEnvironment environment, string path)
         {
             EnsureEnvironment(environment);
-            var mlist = _models[environment.ID];
-            var rlist = _resources[environment.ID];
+            var mlist = _models[environment.Id];
+            var rlist = _resources[environment.Id];
 
             // Check if the model has already been loaded
             var existing = mlist.FirstOrDefault(x => string.Equals(x.Name, path, StringComparison.InvariantCultureIgnoreCase));
@@ -88,7 +88,7 @@ namespace Sledge.BspEditor.Rendering.Resources
         public IModelRenderable CreateModelRenderable(IEnvironment environment, IModel model)
         {
             EnsureEnvironment(environment);
-            var rlist = _resources[environment.ID];
+            var rlist = _resources[environment.Id];
 
             var provider = _modelProviders.FirstOrDefault(x => x.Value.IsProvider(model));
             var res = provider?.Value.CreateRenderable(model);
@@ -109,7 +109,7 @@ namespace Sledge.BspEditor.Rendering.Resources
         public void DestroyModelRenderable(IEnvironment environment, IModelRenderable renderable)
         {
             EnsureEnvironment(environment);
-            var rlist = _resources[environment.ID];
+            var rlist = _resources[environment.Id];
 
             _engine.Value.DestroyResource(renderable);
             rlist.Remove(renderable);
@@ -123,11 +123,11 @@ namespace Sledge.BspEditor.Rendering.Resources
         /// <returns>Completion task</returns>
         public async Task Upload(IEnvironment environment, ResourceCollector collector)
         {
-            if (environment?.ID == null) return;
+            if (environment?.Id == null) return;
             EnsureEnvironment(environment);
 
-            var rlist = _resources[environment.ID];
-            var tlist = _textures[environment.ID];
+            var rlist = _resources[environment.Id];
+            var tlist = _textures[environment.Id];
 
             var textures = collector.Textures.Except(tlist, StringComparer.InvariantCultureIgnoreCase).ToHashSet();
 
@@ -148,9 +148,9 @@ namespace Sledge.BspEditor.Rendering.Resources
 
         private void EnsureEnvironment(IEnvironment environment)
         {
-            if (!_textures.ContainsKey(environment.ID)) _textures.TryAdd(environment.ID, new HashSet<string>());
-            if (!_models.ContainsKey(environment.ID)) _models.TryAdd(environment.ID, new HashSet<ModelResource>());
-            if (!_resources.ContainsKey(environment.ID)) _resources.TryAdd(environment.ID, new List<IResource>());
+            if (!_textures.ContainsKey(environment.Id)) _textures.TryAdd(environment.Id, new HashSet<string>());
+            if (!_models.ContainsKey(environment.Id)) _models.TryAdd(environment.Id, new HashSet<ModelResource>());
+            if (!_resources.ContainsKey(environment.Id)) _resources.TryAdd(environment.Id, new List<IResource>());
         }
 
         private async Task<IResource> UploadTexture(IEnvironment environment, TextureItem item, ITextureStreamSource source)
@@ -162,7 +162,7 @@ namespace Sledge.BspEditor.Rendering.Resources
                 Marshal.Copy(lb.Scan0, data, 0, data.Length);
                 bitmap.UnlockBits(lb);
                 
-                return _engine.Value.UploadTexture($"{environment.ID}::{item.Name}", bitmap.Width, bitmap.Height, data, TextureSampleType.Standard);
+                return _engine.Value.UploadTexture($"{environment.Id}::{item.Name}", bitmap.Width, bitmap.Height, data, TextureSampleType.Standard);
             }
         }
 
@@ -172,15 +172,15 @@ namespace Sledge.BspEditor.Rendering.Resources
         /// <param name="usedEnvironments">The environments to retain resources for</param>
         public void DisposeOtherEnvironments(HashSet<IEnvironment> usedEnvironments)
         {
-            foreach (var dt in _textures.Keys.Except(usedEnvironments.Select(x => x.ID)).ToList())
+            foreach (var dt in _textures.Keys.Except(usedEnvironments.Select(x => x.Id)).ToList())
             {
                 _textures.TryRemove(dt, out _);
             }
-            foreach (var dm in _models.Keys.Except(usedEnvironments.Select(x => x.ID)).ToList())
+            foreach (var dm in _models.Keys.Except(usedEnvironments.Select(x => x.Id)).ToList())
             {
                 _models.TryRemove(dm, out _);
             }
-            foreach (var dr in _resources.Keys.Except(usedEnvironments.Select(x => x.ID)).ToList())
+            foreach (var dr in _resources.Keys.Except(usedEnvironments.Select(x => x.Id)).ToList())
             {
                 var list = _resources[dr];
                 _resources.TryRemove(dr, out _);

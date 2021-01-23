@@ -53,7 +53,7 @@ namespace Sledge.BspEditor.Rendering.Converters
 
             var t = await tc.GetTextureItem(name);
 
-            var texture = $"{document.Environment.ID}::{name}";
+            var texture = $"{document.Environment.Id}::{name}";
             if (t != null) resourceCollector.RequireTexture(t.Name);
 
             var tint = sd.Color.ToVector4();
