@@ -18,7 +18,6 @@ using Sledge.Common.Shell.Documents;
 using Sledge.Common.Transport;
 using Sledge.DataStructures.Geometric;
 using Plane = Sledge.DataStructures.Geometric.Precision.Plane;
-using Polygon = Sledge.DataStructures.Geometric.Precision.Polygon;
 using Polyhedron = Sledge.DataStructures.Geometric.Precision.Polyhedron;
 using PVector3 = Sledge.DataStructures.Geometric.Precision.Vector3;
 

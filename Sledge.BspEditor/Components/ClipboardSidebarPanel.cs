@@ -7,7 +7,6 @@ using LogicAndTrick.Oy;
 using Sledge.BspEditor.Documents;
 using Sledge.Common.Shell.Components;
 using Sledge.Common.Shell.Context;
-using Sledge.Common.Translations;
 
 namespace Sledge.BspEditor.Components
 {

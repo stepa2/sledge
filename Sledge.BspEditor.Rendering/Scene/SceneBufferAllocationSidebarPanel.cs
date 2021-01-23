@@ -8,7 +8,6 @@ using Sledge.Common.Shell.Components;
 using Sledge.Common.Shell.Context;
 using Sledge.Common.Shell.Hooks;
 using Sledge.Rendering.Resources;
-using Sledge.Shell;
 
 namespace Sledge.BspEditor.Rendering.Scene
 {

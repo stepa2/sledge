@@ -5,7 +5,6 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 using Sledge.BspEditor.Editing.Components.Compile.Specification;
-using Sledge.Common;
 using Sledge.Common.Extensions;
 
 namespace Sledge.BspEditor.Editing.Components.Compile

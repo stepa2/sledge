@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Numerics;
 using Sledge.Rendering.Resources;
 
 namespace Sledge.Rendering.Interfaces

@@ -1,5 +1,4 @@
 using System;
-using System.ComponentModel;
 using System.ComponentModel.Composition.Hosting;
 using System.Windows.Forms;
 using LogicAndTrick.Oy;

@@ -1,5 +1,4 @@
 ﻿using System.Numerics;
-using ImGuiNET;
 using Sledge.Rendering.Cameras;
 using Sledge.Rendering.Viewports;
 

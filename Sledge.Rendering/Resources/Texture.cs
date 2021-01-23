@@ -1,5 +1,4 @@
 ﻿using Sledge.Rendering.Engine;
-using Sledge.Rendering.Interfaces;
 using Veldrid;
 
 namespace Sledge.Rendering.Resources

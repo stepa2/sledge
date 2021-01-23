@@ -21,7 +21,6 @@ using Sledge.Common.Shell.Menu;
 using Sledge.Common.Translations;
 using Sledge.DataStructures.GameData;
 using Sledge.QuickForms;
-using Sledge.QuickForms.Items;
 
 namespace Sledge.BspEditor.Editing.Commands
 {

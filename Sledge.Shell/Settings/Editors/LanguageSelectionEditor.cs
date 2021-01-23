@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Reflection;
 using System.Windows.Forms;
 using Sledge.Common.Shell.Settings;
 using Sledge.Common.Translations;

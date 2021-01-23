@@ -1,7 +1,6 @@
 using System;
 using System.Linq;
 using System.Numerics;
-using Sledge.BspEditor.Primitives.MapObjectData;
 using Sledge.Common;
 using Sledge.DataStructures.Geometric;
 using Plane = Sledge.DataStructures.Geometric.Plane;

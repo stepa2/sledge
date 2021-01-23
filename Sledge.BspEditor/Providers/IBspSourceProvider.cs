@@ -4,7 +4,6 @@ using System.IO;
 using System.Threading.Tasks;
 using Sledge.BspEditor.Environment;
 using Sledge.BspEditor.Primitives;
-using Sledge.BspEditor.Primitives.MapObjects;
 using Sledge.Common.Shell.Documents;
 
 namespace Sledge.BspEditor.Providers

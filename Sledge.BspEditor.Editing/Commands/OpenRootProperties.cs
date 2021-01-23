@@ -7,7 +7,6 @@ using Sledge.BspEditor.Documents;
 using Sledge.BspEditor.Editing.Properties;
 using Sledge.BspEditor.Primitives.MapObjects;
 using Sledge.Common.Shell.Commands;
-using Sledge.Common.Shell.Context;
 using Sledge.Common.Shell.Menu;
 using Sledge.Common.Translations;
 
