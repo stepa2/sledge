@@ -45,12 +45,10 @@ namespace Sledge.BspEditor.Editing.Components.Properties.SmartEdit
 
         private IEnumerable<Option> GetSortedOptions()
         {
-            int key;
-            if (Property.Options.All(x => int.TryParse(x.Key, out key)))
-            {
+            if (Property.Options.All(x => int.TryParse(x.Key, out _)))
                 return Property.Options.OrderBy(x => int.Parse(x.Key));
-            }
-            return Property.Options.OrderBy(x => x.Key.ToLowerInvariant());
+            else
+                return Property.Options.OrderBy(x => x.Key.ToLowerInvariant());
         }
 
         protected override void OnSetProperty(MapDocument document)

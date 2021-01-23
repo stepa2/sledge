@@ -90,7 +90,7 @@ namespace Sledge.BspEditor.Editing.Components
 
         private async Task SelectionChanged(MapDocument doc)
         {
-            this.InvokeLater(() =>
+            await this.InvokeLaterAsync(() =>
             {
                 if (doc == null || doc.Selection.IsEmpty) return;
                 var first = doc.Selection.GetSelectedParents().First();
@@ -101,7 +101,7 @@ namespace Sledge.BspEditor.Editing.Components
 
         public async Task DocumentActivated(MapDocument document)
         {
-            this.InvokeLater(() =>
+            await this.InvokeLaterAsync(() =>
             {
                 RefreshNodes(document);
             });
@@ -109,7 +109,7 @@ namespace Sledge.BspEditor.Editing.Components
 
         private async Task DocumentChanged(Change change)
         {
-            this.InvokeLater(() =>
+            await this.InvokeLaterAsync(() =>
             {
                 RefreshNodes(change.Document);
             });
@@ -236,7 +236,7 @@ namespace Sledge.BspEditor.Editing.Components
         private async Task RefreshSelectionProperties()
         {
             Properties.Items.Clear();
-            if (MapTree.SelectedNode != null && MapTree.SelectedNode.Tag != null)
+            if (MapTree.SelectedNode?.Tag != null)
             {
                 var list = await GetTagProperties(MapTree.SelectedNode.Tag);
                 foreach (var kv in list)

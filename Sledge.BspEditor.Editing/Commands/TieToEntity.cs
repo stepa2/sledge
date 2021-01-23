@@ -40,7 +40,7 @@ namespace Sledge.BspEditor.Editing.Commands
         public string MultipleEntitiesSelectedMessage { get; set; }
         public string KeepExisting { get; set; }
         public string CreateNew { get; set; }
-        public string OK { get; set; }
+        public string Ok { get; set; }
         public string Cancel { get; set; }
 
         protected override bool IsInContext(IContext context, MapDocument document)
@@ -84,7 +84,7 @@ namespace Sledge.BspEditor.Editing.Commands
                     var qf = new QuickForm(EntitySelectedTitle) { Width = 400 }
                         .Label(MultipleEntitiesSelectedMessage)
                         .ComboBox("Entity", "", existingEntities.Select(x => new EntityContainer { Entity = x }))
-                        .OkCancel(OK, Cancel)
+                        .OkCancel(Ok, Cancel)
                 )
                 {
                     var result = await qf.ShowDialogAsync();

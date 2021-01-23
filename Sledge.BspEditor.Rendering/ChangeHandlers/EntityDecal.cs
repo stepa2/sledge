@@ -10,7 +10,7 @@ using Sledge.DataStructures.Geometric;
 
 namespace Sledge.BspEditor.Rendering.ChangeHandlers
 {
-    public class EntityDecal : IMapObjectData, IBoundingBoxProvider
+    public class EntityDecal : IBoundingBoxProvider
     {
         public string Name { get; set; }
         public IReadOnlyCollection<long> SolidIDs { get; }

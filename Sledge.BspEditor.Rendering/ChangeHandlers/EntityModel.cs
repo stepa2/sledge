@@ -10,7 +10,7 @@ using Sledge.Rendering.Interfaces;
 
 namespace Sledge.BspEditor.Rendering.ChangeHandlers
 {
-    public class EntityModel : IMapObjectData, IContentsReplaced, IBoundingBoxProvider
+    public class EntityModel : IContentsReplaced, IBoundingBoxProvider
     {
         public string Name { get; }
         public IModelRenderable Renderable { get; }

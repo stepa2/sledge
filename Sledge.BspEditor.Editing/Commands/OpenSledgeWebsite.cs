@@ -21,9 +21,7 @@ namespace Sledge.BspEditor.Editing.Commands
             return true;
         }
 
-        public async Task Invoke(IContext context, CommandParameters parameters)
-        {
-            System.Diagnostics.Process.Start("http://sledge-editor.com/");
-        }
+        public async Task Invoke(IContext context, CommandParameters parameters) => 
+            await Task.Run(() => System.Diagnostics.Process.Start("http://sledge-editor.com/"));
     }
 }

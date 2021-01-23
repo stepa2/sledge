@@ -38,7 +38,7 @@ namespace Sledge.BspEditor.Editing.History
         {
             if (_activeDocument != null && _activeDocument.TryGetTarget(out MapDocument d) && d == doc)
             {
-                this.InvokeLater(Rebuild);
+                await this.InvokeLaterAsync(Rebuild);
             }
         }
 
@@ -46,7 +46,7 @@ namespace Sledge.BspEditor.Editing.History
         {
             var doc = document as MapDocument;
             _activeDocument = new WeakReference<MapDocument>(doc);
-            this.InvokeLater(Rebuild);
+            await this.InvokeLaterAsync(Rebuild);
         }
 
         private void Rebuild()

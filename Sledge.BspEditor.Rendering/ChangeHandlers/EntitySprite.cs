@@ -10,7 +10,7 @@ using Sledge.DataStructures.Geometric;
 
 namespace Sledge.BspEditor.Rendering.ChangeHandlers
 {
-    public class EntitySprite : IMapObjectData, IContentsReplaced, IBoundingBoxProvider
+    public class EntitySprite : IContentsReplaced, IBoundingBoxProvider
     {
         public string Name { get; set; }
         public float Scale { get; }

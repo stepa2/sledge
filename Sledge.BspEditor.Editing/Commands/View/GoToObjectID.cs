@@ -21,19 +21,19 @@ namespace Sledge.BspEditor.Editing.Commands.View
     [CommandID("BspEditor:View:GoToObjectID")]
     [MenuItem("View", "", "GoTo", "D")]
     [MenuImage(typeof(Resources), nameof(Resources.Menu_GoToBrushID))]
-    public class GoToObjectID : BaseCommand
+    public class GoToObjectId : BaseCommand
     {
         public override string Name { get; set; } = "Go to object ID";
         public override string Details { get; set; } = "Select and center views on a specific object ID.";
 
         public string Title { get; set; }
-        public string ObjectID { get; set; }
-        public string OK { get; set; }
+        public string ObjectId { get; set; }
+        public string Ok { get; set; }
         public string Cancel { get; set; }
 
         protected override async Task Invoke(MapDocument document, CommandParameters parameters)
         {
-            using (var qf = new QuickForm(Title) { UseShortcutKeys = true }.TextBox("ObjectID", ObjectID).OkCancel(OK, Cancel))
+            using (var qf = new QuickForm(Title) { UseShortcutKeys = true }.TextBox("ObjectID", ObjectId).OkCancel(Ok, Cancel))
             {
                 qf.ClientSize = new Size(230, qf.ClientSize.Height);
 

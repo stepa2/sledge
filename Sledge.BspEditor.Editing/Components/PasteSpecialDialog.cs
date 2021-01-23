@@ -23,8 +23,6 @@ namespace Sledge.BspEditor.Editing.Components
             All
         }
 
-        private readonly Box _source;
-
         public int NumberOfCopies
         {
             get => (int) NumCopies.Value;
@@ -126,16 +124,16 @@ namespace Sledge.BspEditor.Editing.Components
         }
 
         private static decimal _lastNumCopies = 1;
-        private static decimal _lastXOffset = 0;
-        private static decimal _lastYOffset = 0;
-        private static decimal _lastZOffset = 0;
-        private static decimal _lastXRotation = 0;
-        private static decimal _lastYRotation = 0;
-        private static decimal _lastZRotation = 0;
+        private static decimal _lastXOffset;
+        private static decimal _lastYOffset;
+        private static decimal _lastZOffset;
+        private static decimal _lastXRotation;
+        private static decimal _lastYRotation;
+        private static decimal _lastZRotation;
 
         public PasteSpecialDialog(Box source)
         {
-            _source = source;
+            var source1 = source;
             InitializeComponent();
             EntityPrefix.Enabled = PrefixEntityNamesCheckbox.Checked;
 
@@ -143,9 +141,9 @@ namespace Sledge.BspEditor.Editing.Components
             ZeroOffsetYButton.Click += (sender, e) => OffsetY.Value = 0;
             ZeroOffsetZButton.Click += (sender, e) => OffsetZ.Value = 0;
 
-            SourceOffsetXButton.Click += (sender, e) => OffsetX.Value = (decimal) _source.Width;
-            SourceOffsetYButton.Click += (sender, e) => OffsetY.Value = (decimal) _source.Length;
-            SourceOffsetZButton.Click += (sender, e) => OffsetZ.Value = (decimal) _source.Height;
+            SourceOffsetXButton.Click += (sender, e) => OffsetX.Value = (decimal) source1.Width;
+            SourceOffsetYButton.Click += (sender, e) => OffsetY.Value = (decimal) source1.Length;
+            SourceOffsetZButton.Click += (sender, e) => OffsetZ.Value = (decimal) source1.Height;
 
             ZeroRotationXButton.Click += (sender, e) => RotationX.Value = 0;
             ZeroRotationYButton.Click += (sender, e) => RotationY.Value = 0;

@@ -18,7 +18,6 @@ namespace Sledge.BspEditor.Editing.Components
 
         public class CannotScaleByZeroException : Exception { }
 
-        private readonly Box _source;
         private decimal _zeroValue = 0;
 
         public Vector3 TransformValue
@@ -59,16 +58,15 @@ namespace Sledge.BspEditor.Editing.Components
 
         public TransformDialog(Box source)
         {
-            _source = source;
             InitializeComponent();
 
             ZeroValueXButton.Click += (sender, e) => ValueX.Value = _zeroValue;
             ZeroValueYButton.Click += (sender, e) => ValueY.Value = _zeroValue;
             ZeroValueZButton.Click += (sender, e) => ValueZ.Value = _zeroValue;
 
-            SourceValueXButton.Click += (sender, e) => ValueX.Value = (decimal) _source.Width;
-            SourceValueYButton.Click += (sender, e) => ValueY.Value = (decimal) _source.Length;
-            SourceValueZButton.Click += (sender, e) => ValueZ.Value = (decimal) _source.Height;
+            SourceValueXButton.Click += (sender, e) => ValueX.Value = (decimal) source.Width;
+            SourceValueYButton.Click += (sender, e) => ValueY.Value = (decimal) source.Length;
+            SourceValueZButton.Click += (sender, e) => ValueZ.Value = (decimal) source.Height;
 
             TypeChanged(null, null);
         }

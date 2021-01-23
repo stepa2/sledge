@@ -35,7 +35,7 @@ namespace Sledge.BspEditor.Editing.Commands.Pointfile
             var dir = Path.GetDirectoryName(document.FileName);
             var file = Path.GetFileNameWithoutExtension(document.FileName);
 
-            if (dir != null && file != null)
+            if (dir != null)
             {
                 var lin = Path.Combine(dir, file + ".lin");
                 if (File.Exists(lin))

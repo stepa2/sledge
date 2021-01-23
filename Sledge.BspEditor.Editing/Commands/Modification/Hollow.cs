@@ -35,7 +35,7 @@ namespace Sledge.BspEditor.Editing.Commands.Modification
         public string PromptTitle { get; set; }
         public string PromptWallWidth { get; set; }
         public string WarningMessage { get; set; }
-        public string OK { get; set; }
+        public string Ok { get; set; }
         public string Cancel { get; set; }
 
         protected override bool IsInContext(IContext context, MapDocument document)
@@ -52,7 +52,7 @@ namespace Sledge.BspEditor.Editing.Commands.Modification
             var qf = new QuickForm(PromptTitle) {UseShortcutKeys = true};
             if (objects.Count > 1) qf.Label(String.Format(WarningMessage, objects.Count));
             qf.NumericUpDown("Width", PromptWallWidth, -1024, 1024, 0, 32);
-            qf.OkCancel(OK, Cancel);
+            qf.OkCancel(Ok, Cancel);
 
             if (await qf.ShowDialogAsync() != DialogResult.OK) return;
 

@@ -203,6 +203,7 @@ namespace Sledge.BspEditor.Editing.Components.Compile
                         controls.Add(file);
                         var fileButton = new Button
                         {
+                            // ReSharper disable once LocalizableElement
                             Text = "...",
                             Width = 25,
                             Height = 20,
@@ -233,6 +234,7 @@ namespace Sledge.BspEditor.Editing.Components.Compile
                         controls.Add(folder);
                         var folderButton = new Button
                         {
+                            // ReSharper disable once LocalizableElement
                             Text = "...",
                             Width = 25,
                             Height = 20,

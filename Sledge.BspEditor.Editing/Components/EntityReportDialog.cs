@@ -42,7 +42,15 @@ namespace Sledge.BspEditor.Editing.Components
             public int Compare(object x, object y)
             {
                 var i1 = (ListViewItem)x;
+                if (i1 == null)
+                    return -1;
+
                 var i2 = (ListViewItem)y;
+                if (i2 == null)
+                    return 1;
+
+
+
                 var compare = String.CompareOrdinal(i1.SubItems[Column].Text, i2.SubItems[Column].Text);
                 return SortOrder == SortOrder.Descending ? -compare : compare;
             }

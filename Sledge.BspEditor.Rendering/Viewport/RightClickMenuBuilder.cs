@@ -83,23 +83,23 @@ namespace Sledge.BspEditor.Rendering.Viewport
 
         private class CommandItem : ToolStripMenuItem
         {
-            private readonly string _commandID;
+            private readonly string _commandId;
             private readonly object _parameters;
 
-            public CommandItem(string commandID, object parameters = null)
+            public CommandItem(string commandId, object parameters = null)
             {
-                _commandID = commandID;
+                _commandId = commandId;
                 _parameters = parameters;
                 Click += RunCommand;
 
                 var register = Common.Container.Get<Shell.Registers.CommandRegister>();
-                var cmd = register.Get(_commandID);
-                Text = cmd == null ? _commandID : cmd.Name;
+                var cmd = register.Get(_commandId);
+                Text = cmd == null ? _commandId : cmd.Name;
             }
 
             private void RunCommand(object sender, EventArgs e)
             {
-                Oy.Publish("Command:Run", new CommandMessage(_commandID, _parameters));
+                Oy.Publish("Command:Run", new CommandMessage(_commandId, _parameters));
             }
         }
     }

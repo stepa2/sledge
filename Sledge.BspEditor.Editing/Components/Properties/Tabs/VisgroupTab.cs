@@ -73,7 +73,7 @@ namespace Sledge.BspEditor.Editing.Components.Properties.Tabs
         /// <inheritdoc />
         public async Task SetObjects(MapDocument document, List<IMapObject> objects)
         {
-            visgroupPanel.InvokeLater(() =>
+            await visgroupPanel.InvokeLaterAsync(() =>
             {
                 _state = GetVisgroups(document, objects);
                 visgroupPanel.Update(_state.Keys);

@@ -7,7 +7,7 @@ namespace Sledge.BspEditor.Editing.Components.Compile.Specification
 {
     public class CompileSpecification
     {
-        public string ID { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string Engine { get; set; }
         public List<CompileTool> Tools { get; private set; }
@@ -28,7 +28,7 @@ namespace Sledge.BspEditor.Editing.Components.Compile.Specification
         {
             var spec = new CompileSpecification
             {
-                ID = gs.Get("ID", ""),
+                Id = gs.Get("ID", ""),
                 Name = gs.Get("Name", ""),
                 Engine = gs.Get("Engine", "")
             };

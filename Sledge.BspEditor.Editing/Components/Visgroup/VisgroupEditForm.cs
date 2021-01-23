@@ -82,7 +82,7 @@ namespace Sledge.BspEditor.Editing.Components.Visgroup
             }
         }
 
-        private long GetNewID()
+        private long GetNewId()
         {
             var ids = _visgroups.Select(x => x.ID).Union(_deleted.Select(x => x.ID)).ToList();
             return Math.Max(1, ids.Any() ? ids.Max() + 1 : 1);
@@ -92,7 +92,7 @@ namespace Sledge.BspEditor.Editing.Components.Visgroup
         {
             var newGroup = new Vg
             {
-                                   ID = GetNewID(),
+                                   ID = GetNewId(),
                                    Colour = Colour.GetRandomLightColour(),
                                    Name = "New Group",
                                    Visible = true

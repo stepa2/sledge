@@ -101,12 +101,14 @@ namespace Sledge.BspEditor.Editing.Components
             {
                 return this.InvokeLaterAsync(() =>
                 {
+                    // ReSharper disable LocalizableElement
                     NumSolids.Text = "\u2014";
                     NumFaces.Text = "\u2014";
                     NumPointEntities.Text = "\u2014";
                     NumSolidEntities.Text = "\u2014";
                     NumUniqueTextures.Text = "\u2014";
                     TextureMemoryValue.Text = "\u2014";
+                    // ReSharper restore LocalizableElement
                     TexturePackages.Items.Clear();
                 });
             }

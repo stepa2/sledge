@@ -47,12 +47,13 @@ namespace Sledge.BspEditor.Editing.Components.Compile
             PopulateTabs();
             PopulateProfiles();
 
+            // ReSharper disable once RedundantNameQualifier
             var translate = Sledge.Common.Container.Get<ITranslationStringProvider>();
             translate.Translate(this);
         }
 
         public string ProfileName { get; set; }
-        public string OK { get; set; }
+        public string Ok { get; set; }
         public string Cancel { get; set; }
         public string DeleteProfile { get; set; }
         public string DeleteAreYouSure { get; set; }
@@ -74,7 +75,7 @@ namespace Sledge.BspEditor.Editing.Components.Compile
                 btnGo.Text = strings.GetString(prefix, "Compile");
 
                 ProfileName = strings.GetString(prefix, "ProfileName");
-                OK = strings.GetString(prefix, "OK");
+                Ok = strings.GetString(prefix, "OK");
                 Cancel = strings.GetString(prefix, "Cancel");
                 DeleteProfile = strings.GetString(prefix, "DeleteProfile");
                 DeleteAreYouSure = strings.GetString(prefix, "DeleteAreYouSure");
@@ -264,7 +265,7 @@ namespace Sledge.BspEditor.Editing.Components.Compile
         {
             var qf = new QuickForm(ProfileName) {UseShortcutKeys = true};
             qf.TextBox("ProfileName", ProfileName, name);
-            qf.OkCancel(OK, Cancel);
+            qf.OkCancel(Ok, Cancel);
 
             if (qf.ShowDialog() != DialogResult.OK) return null;
 

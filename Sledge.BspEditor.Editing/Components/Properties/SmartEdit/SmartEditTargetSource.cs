@@ -10,6 +10,8 @@ namespace Sledge.BspEditor.Editing.Components.Properties.SmartEdit
     public class SmartEditTargetSource : SmartEditControl
     {
         private readonly TextBox _textBox;
+        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
+        // Unimplemented, see lower
         private readonly Label _validationLabel;
 
         public SmartEditTargetSource()

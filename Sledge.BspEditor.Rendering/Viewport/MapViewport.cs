@@ -76,7 +76,8 @@ namespace Sledge.BspEditor.Rendering.Viewport
                 foreach (var frame in frames)
                 {
                     var method = frame.GetMethod();
-                    msg += "\r\n    " + method.ReflectedType.FullName + "." + method.Name;
+                    
+                    msg += $"\r\n    {method.ReflectedType?.FullName ?? "[Unknown]"}.{method.Name}";
                 }
                 ListenerException(this, new Exception(msg, ex));
             }

@@ -27,12 +27,12 @@ namespace Sledge.BspEditor.Editing.Commands.View
         public override string Details { get; set; } = "Center views on a specific set of coordinates.";
 
         public string Title { get; set; }
-        public string OK { get; set; }
+        public string Ok { get; set; }
         public string Cancel { get; set; }
 
         protected override async Task Invoke(MapDocument document, CommandParameters parameters)
         {
-            using (var qf = new QuickForm(Title) { UseShortcutKeys = true }.TextBox("X", "X", "0").TextBox("Y", "Y", "0").TextBox("Z", "Z", "0").OkCancel(OK, Cancel))
+            using (var qf = new QuickForm(Title) { UseShortcutKeys = true }.TextBox("X", "X", "0").TextBox("Y", "Y", "0").TextBox("Z", "Z", "0").OkCancel(Ok, Cancel))
             {
                 qf.ClientSize = new Size(180, qf.ClientSize.Height);
 
