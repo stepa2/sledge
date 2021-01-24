@@ -2,7 +2,7 @@ struct GeometryIn
 {
     float4 gPosition : SV_Position;
     float4 gNormal : NORMAL0;
-    float4 gColour : COLOR0;
+    float4 gColor : COLOR0;
     float2 gTexture : TEXCOORD0;
     float4 gTint : COLOR1;
 };
@@ -11,7 +11,7 @@ struct FragmentIn
 {
     float4 fPosition : SV_Position;
     float4 fNormal : NORMAL0;
-    float4 fColour : COLOR0;
+    float4 fColor : COLOR0;
     float2 fTexture : TEXCOORD0;
     float4 fTint : COLOR1;
 };
@@ -60,7 +60,7 @@ void main(point GeometryIn input[1], inout TriangleStream<FragmentIn> output)
 
         gOut.fPosition = viewportPos;
         gOut.fNormal = float4(0,0,0, 1);
-        gOut.fColour = input[0].gColour;
+        gOut.fColor = input[0].gColor;
         gOut.fTexture = texCoords[i];
         gOut.fTint = input[0].gTint;
 

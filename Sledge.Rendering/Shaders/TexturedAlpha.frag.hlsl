@@ -2,7 +2,7 @@ struct FragmentIn
 {
     float4 fPosition : SV_Position;
     float4 fNormal : NORMAL0;
-    float4 fColour : COLOR0;
+    float4 fColor : COLOR0;
     float2 fTexture : TEXCOORD0;
     float4 fTint : COLOR1;
     uint1 fFlags : POSITION1;

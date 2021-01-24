@@ -2,7 +2,7 @@ struct FragmentIn
 {
     float4 fPosition : SV_Position;
     float4 fNormal : NORMAL0;
-    float4 fColour : COLOR0;
+    float4 fColor : COLOR0;
     float2 fTexture : TEXCOORD0;
     float4 fTint : COLOR1;
     uint1 fFlags : POSITION1;
@@ -23,7 +23,7 @@ float4 main(FragmentIn input) : SV_Target0
     float4 tex = Texture.Sample(Sampler, input.fTexture);
 
     // flat colour flag: texture sample replaced with colour
-    tex = lerp(tex, input.fColour, (input.fFlags.x & Flags_FlatColour) / Flags_FlatColour);
+    tex = lerp(tex, input.fColor, (input.fFlags.x & Flags_FlatColour) / Flags_FlatColour);
 
     // alpha tested flag: alpha < 0.5 is discarded
     // if not enabled the alpha value will be set to 1

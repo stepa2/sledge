@@ -105,7 +105,7 @@ namespace Sledge.BspEditor.Providers
                 var vis = new Visgroup
                 {
                     Name = br.ReadFixedLengthString(Encoding.ASCII, 128),
-                    Colour = br.ReadRGBAColour(),
+                    Colour = br.ReadRGBAColor(),
                     ID = br.ReadInt32(),
                     Visible = br.ReadBoolean()
                 };
@@ -156,7 +156,7 @@ namespace Sledge.BspEditor.Providers
                 obj.Data.Add(new VisgroupID(visgroupId));
             }
 
-            var c = br.ReadRGBColour();
+            var c = br.ReadRGBColor();
             obj.Data.Add(new ObjectColor(c));
 
             var numChildren = br.ReadInt32();
@@ -344,7 +344,7 @@ namespace Sledge.BspEditor.Providers
             foreach (var visgroup in vis)
             {
                 bw.WriteFixedLengthString(Encoding.ASCII, 128, visgroup.Name);
-                bw.WriteRGBAColour(visgroup.Colour);
+                bw.WriteRGBAColor(visgroup.Colour);
                 bw.Write((int) visgroup.ID);
                 bw.Write(visgroup.Visible);
                 bw.Write(new byte[3]); // Unused
@@ -371,7 +371,7 @@ namespace Sledge.BspEditor.Providers
         private void WriteMapBase(IMapObject obj, BinaryWriter bw)
         {
             bw.Write((int) (obj.Data.OfType<VisgroupID>().FirstOrDefault()?.ID ?? 0));
-            bw.WriteRGBColour(obj.Data.GetOne<ObjectColor>()?.Color ?? Color.White);
+            bw.WriteRGBColor(obj.Data.GetOne<ObjectColor>()?.Color ?? Color.White);
             bw.Write(obj.Hierarchy.NumChildren);
             foreach (var child in obj.Hierarchy)
             {

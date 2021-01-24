@@ -2,7 +2,7 @@ struct VertexIn
 {
     float3 Position : POSITION0;
     float3 Normal : NORMAL0;
-    float4 Colour : COLOR0;
+    float4 Color : COLOR0;
     float2 Texture : TEXCOORD0;
     float4 Tint : COLOR1;
     uint1 Flags : POSITION1;
@@ -12,7 +12,7 @@ struct GeometryIn
 {
     float4 gPosition : SV_Position;
     float4 gNormal : NORMAL0;
-    float4 gColour : COLOR0;
+    float4 gColor : COLOR0;
     float2 gTexture : TEXCOORD0;
     float4 gTint : COLOR1;
 };
@@ -40,7 +40,7 @@ GeometryIn main(VertexIn input)
 
     output.gPosition = position;
     output.gNormal = normal;
-    output.gColour = input.Colour;
+    output.gColor = input.Color;
     output.gTexture = input.Texture;
     output.gTint = input.Tint;
 

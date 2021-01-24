@@ -2,7 +2,7 @@ struct VertexIn
 {
     float3 Position : POSITION0;
     float3 Normal : NORMAL0;
-    float4 Colour : COLOR0;
+    float4 Color : COLOR0;
     float2 Texture : TEXCOORD0;
     float4 Tint : COLOR1;
     uint1 Flags : POSITION1;
@@ -12,7 +12,7 @@ struct FragmentIn
 {
     float4 fPosition : SV_Position;
     float4 fNormal : NORMAL0;
-    float4 fColour : COLOR0;
+    float4 fColor : COLOR0;
     float2 fTexture : TEXCOORD0;
     float4 fTint : COLOR1;
     uint1 fFlags : POSITION1;
@@ -49,7 +49,7 @@ FragmentIn main(VertexIn input)
 
     output.fPosition = viewportPos;
     output.fNormal = normal;
-    output.fColour = input.Colour;
+    output.fColor = input.Color;
     output.fTexture = input.Texture;
     output.fTint = input.Tint;
     output.fFlags = input.Flags;

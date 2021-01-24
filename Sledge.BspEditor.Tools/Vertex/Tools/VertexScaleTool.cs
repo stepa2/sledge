@@ -19,6 +19,7 @@ using Sledge.Rendering.Overlay;
 using Sledge.Rendering.Resources;
 using Sledge.Rendering.Viewports;
 using Sledge.Shell.Input;
+using Color = System.Drawing.Color;
 
 namespace Sledge.BspEditor.Tools.Vertex.Tools
 {

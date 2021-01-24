@@ -4,6 +4,7 @@ using System.Numerics;
 using ImGuiNET;
 using Sledge.Common;
 using Sledge.Rendering.Viewports;
+using Color = System.Drawing.Color;
 
 namespace Sledge.Rendering.Overlay
 {

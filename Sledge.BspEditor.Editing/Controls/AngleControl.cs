@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 using Sledge.Common;
+using Color = System.Drawing.Color;
 
 namespace Sledge.BspEditor.Editing.Controls
 {

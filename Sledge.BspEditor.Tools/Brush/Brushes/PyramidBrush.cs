@@ -29,7 +29,7 @@ namespace Sledge.BspEditor.Tools.Brush.Brushes
         public IEnumerable<IMapObject> Create(UniqueNumberGenerator generator, Box box, string texture, int roundDecimals)
         {
             var solid = new Solid(generator.Next("MapObject"));
-            solid.Data.Add(new ObjectColor(Colour.GetRandomBrushColour()));
+            solid.Data.Add(new ObjectColor(Color.GetRandomBrushColour()));
 
             // The lower Z plane will be base
             var c1 = new Vector3(box.Start.X, box.Start.Y, box.Start.Z).Round(roundDecimals);

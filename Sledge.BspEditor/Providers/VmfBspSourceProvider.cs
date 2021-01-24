@@ -17,6 +17,7 @@ using Sledge.Common;
 using Sledge.Common.Shell.Documents;
 using Sledge.Common.Transport;
 using Sledge.DataStructures.Geometric;
+using Color = Sledge.Common.Color;
 using Plane = Sledge.DataStructures.Geometric.Precision.Plane;
 using Polyhedron = Sledge.DataStructures.Geometric.Precision.Polyhedron;
 using PVector3 = Sledge.DataStructures.Geometric.Precision.Vector3;
@@ -115,7 +116,7 @@ namespace Sledge.BspEditor.Providers
                     Colour = vg.GetColor("color"),
                     Visible = true
                 };
-                if (v.Colour.GetBrightness() < 0.001f) v.Colour = Colour.GetRandomBrushColour();
+                if (v.Colour.GetBrightness() < 0.001f) v.Colour = Color.GetRandomBrushColour();
                 if (v.ID < 0) continue;
                 map.Data.Add(v);
             }
@@ -852,7 +853,7 @@ namespace Sledge.BspEditor.Providers
 
         private class VmfEditor
         {
-            public Color Color { get; set; }
+            public System.Drawing.Color Color { get; set; }
             public bool VisgroupShown { get; set; }
             public bool VisgroupAutoShown { get; set; }
             public List<long> VisgroupIDs { get; set; }
@@ -879,7 +880,7 @@ namespace Sledge.BspEditor.Providers
 
             public VmfEditor(IMapObject obj)
             {
-                Color = obj.Data.GetOne<ObjectColor>()?.Color ?? Color.Red;
+                Color = obj.Data.GetOne<ObjectColor>()?.Color ?? System.Drawing.Color.Red;
                 VisgroupShown = VisgroupAutoShown = true;
                 VisgroupIDs = obj.Data.Get<VisgroupID>().Select(x => x.ID).ToList();
                 GroupID = obj.Hierarchy.Parent is Group ? obj.Hierarchy.Parent.ID : 0;
@@ -888,7 +889,7 @@ namespace Sledge.BspEditor.Providers
 
             public void Apply(IMapObject obj)
             {
-                var c = Color.GetBrightness() > 0 ? Color : Colour.GetRandomBrushColour();
+                var c = Color.GetBrightness() > 0 ? Color : Color.GetRandomBrushColour();
                 obj.Data.Replace(new ObjectColor(c));
                 foreach (var id in VisgroupIDs)
                 {

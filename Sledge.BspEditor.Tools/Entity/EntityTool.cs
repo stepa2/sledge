@@ -28,6 +28,7 @@ using Sledge.Rendering.Cameras;
 using Sledge.Rendering.Pipelines;
 using Sledge.Rendering.Primitives;
 using Sledge.Rendering.Resources;
+using Color = Sledge.Common.Color;
 
 namespace Sledge.BspEditor.Tools.Entity
 {
@@ -240,7 +241,7 @@ namespace Sledge.BspEditor.Tools.Entity
             if (gd == null) gd = _activeEntity;
             if (gd == null) return;
 
-            var colour = Colour.GetDefaultEntityColour();
+            var colour = Color.GetDefaultEntityColour();
             var data = await document.Environment.GetGameData();
             if (data != null)
             {

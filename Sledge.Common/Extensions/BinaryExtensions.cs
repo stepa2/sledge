@@ -195,9 +195,9 @@ namespace Sledge.Common.Extensions
         /// </summary>
         /// <param name="br">Binary reader</param>
         /// <returns>The colour which was read</returns>
-        public static Color ReadRGBColour(this BinaryReader br)
+        public static System.Drawing.Color ReadRGBColor(this BinaryReader br)
         {
-            return Color.FromArgb(255, br.ReadByte(), br.ReadByte(), br.ReadByte());
+            return System.Drawing.Color.FromArgb(255, br.ReadByte(), br.ReadByte(), br.ReadByte());
         }
 
         /// <summary>
@@ -205,7 +205,7 @@ namespace Sledge.Common.Extensions
         /// </summary>
         /// <param name="bw">Binary writer</param>
         /// <param name="c">The colour to write</param>
-        public static void WriteRGBColour(this BinaryWriter bw, Color c)
+        public static void WriteRGBColor(this BinaryWriter bw, System.Drawing.Color c)
         {
             bw.Write(c.R);
             bw.Write(c.G);
@@ -217,13 +217,13 @@ namespace Sledge.Common.Extensions
         /// </summary>
         /// <param name="br">Binary reader</param>
         /// <returns>The colour which was read</returns>
-        public static Color ReadRGBAColour(this BinaryReader br)
+        public static System.Drawing.Color ReadRGBAColor(this BinaryReader br)
         {
             var r = br.ReadByte();
             var g = br.ReadByte();
             var b = br.ReadByte();
             var a = br.ReadByte();
-            return Color.FromArgb(a, r, g, b);
+            return System.Drawing.Color.FromArgb(a, r, g, b);
         }
 
         /// <summary>
@@ -231,7 +231,7 @@ namespace Sledge.Common.Extensions
         /// </summary>
         /// <param name="bw">Binary writer</param>
         /// <param name="c">The colour to write</param>
-        public static void WriteRGBAColour(this BinaryWriter bw, Color c)
+        public static void WriteRGBAColor(this BinaryWriter bw, System.Drawing.Color c)
         {
             bw.Write(c.R);
             bw.Write(c.G);

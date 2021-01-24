@@ -14,6 +14,7 @@ using Sledge.Rendering.Overlay;
 using Sledge.Rendering.Viewports;
 using Sledge.Shell;
 using Sledge.Shell.Input;
+using Color = System.Drawing.Color;
 
 namespace Sledge.BspEditor.Rendering.Viewport
 {

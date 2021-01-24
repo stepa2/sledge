@@ -43,7 +43,7 @@ namespace Sledge.BspEditor.Editing.Problems
                 Data =
                 {
                     new EntityData { Name = "info_player_start" },
-                    new ObjectColor(Colour.GetDefaultEntityColour()),
+                    new ObjectColor(Color.GetDefaultEntityColour()),
                     new Origin(Vector3.Zero),
                 },
                 IsSelected = false

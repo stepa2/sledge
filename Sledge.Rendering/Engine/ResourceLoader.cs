@@ -44,7 +44,7 @@ namespace Sledge.Rendering.Engine
             VertexStandardLayoutDescription = new VertexLayoutDescription(
                 new VertexElementDescription("Position", VertexElementSemantic.Position, VertexElementFormat.Float3),
                 new VertexElementDescription("Normal", VertexElementSemantic.Normal, VertexElementFormat.Float3),
-                new VertexElementDescription("Colour", VertexElementSemantic.Color, VertexElementFormat.Float4),
+                new VertexElementDescription("Color", VertexElementSemantic.Color, VertexElementFormat.Float4),
                 new VertexElementDescription("Texture", VertexElementSemantic.TextureCoordinate, VertexElementFormat.Float2),
                 new VertexElementDescription("Tint", VertexElementSemantic.Color, VertexElementFormat.Float4),
                 new VertexElementDescription("Flags", VertexElementSemantic.Position, VertexElementFormat.UInt1)

@@ -13,6 +13,7 @@ using Sledge.Common.Shell.Components;
 using Sledge.Common.Shell.Hooks;
 using Sledge.Common.Translations;
 using Sledge.DataStructures.Geometric;
+using Color = Sledge.Common.Color;
 using Plane = Sledge.DataStructures.Geometric.Plane;
 
 namespace Sledge.BspEditor.Tools.Brush.Brushes
@@ -42,10 +43,10 @@ namespace Sledge.BspEditor.Tools.Brush.Brushes
             yield return _numSides;
         }
 
-        private Solid MakeSolid(UniqueNumberGenerator generator, IEnumerable<Vector3[]> faces, string texture, Color col)
+        private Solid MakeSolid(UniqueNumberGenerator generator, IEnumerable<Vector3[]> faces, string texture, System.Drawing.Color col)
         {
             var solid = new Solid(generator.Next("MapObject"));
-            solid.Data.Add(new ObjectColor(Colour.GetRandomBrushColour()));
+            solid.Data.Add(new ObjectColor(Color.GetRandomBrushColour()));
 
             foreach (var arr in faces)
             {
@@ -121,7 +122,7 @@ namespace Sledge.BspEditor.Tools.Brush.Brushes
                     }
                 }
             }
-            yield return MakeSolid(generator, faces, texture, Colour.GetRandomBrushColour());
+            yield return MakeSolid(generator, faces, texture, Color.GetRandomBrushColour());
         }
     }
 }

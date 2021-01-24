@@ -58,7 +58,7 @@ namespace Sledge.Providers.Texture.Wad.Format
                 bw.Write(_entry.Width);
                 bw.Write(_entry.Height);
                 bw.Write((short) 1); // Number of colour planes
-                bw.Write((short) 8); // Colour depth
+                bw.Write((short) 8); // Color depth
                 bw.Write(0); // Compression method
                 bw.Write(_entry.Width * _entry.Height); // Image data size
                 bw.Write(0); // Horizontal resolution

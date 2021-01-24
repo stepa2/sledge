@@ -17,6 +17,7 @@ using Sledge.Common.Shell.Components;
 using Sledge.Common.Shell.Hotkeys;
 using Sledge.DataStructures.Geometric;
 using Sledge.Rendering.Cameras;
+using Color = Sledge.Common.Color;
 
 namespace Sledge.BspEditor.Tools.Decal
 {
@@ -85,7 +86,7 @@ namespace Sledge.BspEditor.Tools.Decal
                         Name = gd.Name,
                         Properties = {{"texture", texture}}
                     },
-                    new ObjectColor(Colour.GetRandomBrushColour()),
+                    new ObjectColor(Color.GetRandomBrushColour()),
                     new Origin(origin)
                 }
             };

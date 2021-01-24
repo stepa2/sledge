@@ -58,7 +58,7 @@ namespace Sledge.Common.Transport
         /// <param name="so">The serialised object</param>
         /// <param name="key">The property key to set</param>
         /// <param name="color">The value to set</param>
-        public static void SetColor(this SerialisedObject so, string key, Color color)
+        public static void SetColor(this SerialisedObject so, string key, System.Drawing.Color color)
         {
             var r = Convert.ToString(color.R, CultureInfo.InvariantCulture);
             var g = Convert.ToString(color.G, CultureInfo.InvariantCulture);
@@ -72,7 +72,7 @@ namespace Sledge.Common.Transport
         /// <param name="so">The serialised object</param>
         /// <param name="key">The property key to get</param>
         /// <returns>The property value as a colour</returns>
-        public static Color GetColor(this SerialisedObject so, string key)
+        public static System.Drawing.Color GetColor(this SerialisedObject so, string key)
         {
             var str = Get<string>(so, key) ?? "";
             var spl = str.Split(' ');
@@ -80,7 +80,7 @@ namespace Sledge.Common.Transport
             byte.TryParse(spl[0], NumberStyles.Any, CultureInfo.InvariantCulture, out var r);
             byte.TryParse(spl[1], NumberStyles.Any, CultureInfo.InvariantCulture, out var g);
             byte.TryParse(spl[2], NumberStyles.Any, CultureInfo.InvariantCulture, out var b);
-            return Color.FromArgb(255, r, g, b);
+            return System.Drawing.Color.FromArgb(255, r, g, b);
         }
     }
 }

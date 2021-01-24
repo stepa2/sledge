@@ -7,6 +7,7 @@ using Sledge.BspEditor.Documents;
 using Sledge.Common;
 using Sledge.Common.Translations;
 using Sledge.Shell;
+using Color = Sledge.Common.Color;
 using Vg = Sledge.BspEditor.Primitives.MapData.Visgroup;
 
 namespace Sledge.BspEditor.Editing.Components.Visgroup
@@ -93,7 +94,7 @@ namespace Sledge.BspEditor.Editing.Components.Visgroup
             var newGroup = new Vg
             {
                                    ID = GetNewId(),
-                                   Colour = Colour.GetRandomLightColour(),
+                                   Colour = Color.GetRandomLightColour(),
                                    Name = "New Group",
                                    Visible = true
                                };

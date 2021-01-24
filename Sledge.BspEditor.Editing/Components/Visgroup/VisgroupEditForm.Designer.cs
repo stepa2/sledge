@@ -79,7 +79,7 @@
             this.ColorLabel.Name = "ColorLabel";
             this.ColorLabel.Size = new System.Drawing.Size(119, 13);
             this.ColorLabel.TabIndex = 3;
-            this.ColorLabel.Text = "Colour (click to change)";
+            this.ColorLabel.Text = "Color (click to change)";
             // 
             // ColourPanel
             // 
