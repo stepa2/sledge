@@ -63,7 +63,7 @@ namespace Sledge.BspEditor.Primitives
                 solid.Data.Add(face);
             }
 
-            // Add any extra data (visgroups, colour, etc)
+            // Add any extra data (visgroups, color, etc)
             foreach (var data in original.Data.Where(x => !(x is Face)))
             {
                 solid.Data.Add((IMapObjectData)data.Clone());

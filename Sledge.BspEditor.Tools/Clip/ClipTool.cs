@@ -275,9 +275,9 @@ namespace Sledge.BspEditor.Tools.Clip
                 builder.Append(
                     new []
                     {
-                        new VertexStandard { Position = p1, Colour = Vector4.One, Tint = Vector4.One },
-                        new VertexStandard { Position = p2, Colour = Vector4.One, Tint = Vector4.One },
-                        new VertexStandard { Position = p3, Colour = Vector4.One, Tint = Vector4.One },
+                        new VertexStandard { Position = p1, Color = Vector4.One, Tint = Vector4.One },
+                        new VertexStandard { Position = p2, Color = Vector4.One, Tint = Vector4.One },
+                        new VertexStandard { Position = p3, Color = Vector4.One, Tint = Vector4.One },
                     },
                     new uint [] { 0, 1, 1, 2, 2, 0 },
                     new []
@@ -311,7 +311,7 @@ namespace Sledge.BspEditor.Tools.Clip
                     foreach (var polygon in faces)
                     {
                         var c = verts.Count;
-                        verts.AddRange(polygon.Vertices.Select(x => new VertexStandard { Position = x, Colour = Vector4.One, Tint = Vector4.One }));
+                        verts.AddRange(polygon.Vertices.Select(x => new VertexStandard { Position = x, Color = Vector4.One, Tint = Vector4.One }));
                         for (var i = 0; i < polygon.Vertices.Count; i++)
                         {
                             indices.Add(c + i);
@@ -341,7 +341,7 @@ namespace Sledge.BspEditor.Tools.Clip
                     indices.Clear();
 
                     var clipPoly = poly.ToStandardPolygon();
-                    var colour = Color.FromArgb(64, Color.Turquoise).ToVector4();
+                    var color = Color.FromArgb(64, Color.Turquoise).ToVector4();
 
                     // Add the face in both directions so it renders on both sides
                     var polies = new[] { clipPoly.Vertices.ToList(), clipPoly.Vertices.Reverse().ToList() };
@@ -351,9 +351,9 @@ namespace Sledge.BspEditor.Tools.Clip
                         verts.AddRange(p.Select(x => new VertexStandard
                         {
                             Position = x,
-                            Colour = Vector4.One,
-                            Tint = colour,
-                            Flags = VertexFlags.FlatColour
+                            Color = Vector4.One,
+                            Tint = color,
+                            Flags = VertexFlags.FlatColor
                         }));
 
                         for (var i = 2; i < clipPoly.Vertices.Count; i++)

@@ -4,7 +4,7 @@ using System.Drawing;
 namespace Sledge.Common
 {
     /// <summary>
-    /// Common extension methods for colours
+    /// Common extension methods for colors
     /// </summary>
     public static class Color
     {
@@ -16,65 +16,65 @@ namespace Sledge.Common
         }
 
         /// <summary>
-        /// Get a completely random opaque colour
+        /// Get a completely random opaque color
         /// </summary>
-        /// <returns>A random colour</returns>
-        public static System.Drawing.Color GetRandomColour()
+        /// <returns>A random color</returns>
+        public static System.Drawing.Color GetRandomColor()
         {
             return System.Drawing.Color.FromArgb(255, Rand.Next(0, 256), Rand.Next(0, 256), Rand.Next(0, 256));
         }
 
         /// <summary>
-        /// Get a random brush colour. Brush colours only vary from shades of green and blue.
+        /// Get a random brush color. Brush colors only vary from shades of green and blue.
         /// </summary>
-        /// <returns>A random brush colour</returns>
-        public static System.Drawing.Color GetRandomBrushColour()
+        /// <returns>A random brush color</returns>
+        public static System.Drawing.Color GetRandomBrushColor()
         {
             return System.Drawing.Color.FromArgb(255, 0, Rand.Next(128, 256), Rand.Next(128, 256));
         }
 
         /// <summary>
-        /// Get a random group colour. Group colours only vary from shades of green and red
+        /// Get a random group color. Group colors only vary from shades of green and red
         /// </summary>
-        /// <returns>A random group colour</returns>
-        public static System.Drawing.Color GetRandomGroupColour()
+        /// <returns>A random group color</returns>
+        public static System.Drawing.Color GetRandomGroupColor()
         {
             return System.Drawing.Color.FromArgb(255, Rand.Next(128, 256), Rand.Next(128, 256), 0);
         }
 
         /// <summary>
-        /// Get a random light colour
+        /// Get a random light color
         /// </summary>
-        /// <returns>A random light colour</returns>
-        public static System.Drawing.Color GetRandomLightColour()
+        /// <returns>A random light color</returns>
+        public static System.Drawing.Color GetRandomLightColor()
         {
             return System.Drawing.Color.FromArgb(255, Rand.Next(128, 256), Rand.Next(128, 256), Rand.Next(128, 256));
         }
 
         /// <summary>
-        /// Get a random dark colour
+        /// Get a random dark color
         /// </summary>
-        /// <returns>A random dark colour</returns>
-        public static System.Drawing.Color GetRandomDarkColour()
+        /// <returns>A random dark color</returns>
+        public static System.Drawing.Color GetRandomDarkColor()
         {
             return System.Drawing.Color.FromArgb(255, Rand.Next(0, 128), Rand.Next(0, 128), Rand.Next(0, 128));
         }
 
         /// <summary>
-        /// Get the default entity colour (magenta)
+        /// Get the default entity color (magenta)
         /// </summary>
-        /// <returns>The default entity colour</returns>
-        public static System.Drawing.Color GetDefaultEntityColour()
+        /// <returns>The default entity color</returns>
+        public static System.Drawing.Color GetDefaultEntityColor()
         {
             return System.Drawing.Color.FromArgb(255, 255, 0, 255);
         }
 
         /// <summary>
-        /// Randomly change this colour by a small amount
+        /// Randomly change this color by a small amount
         /// </summary>
-        /// <param name="color">The colour</param>
+        /// <param name="color">The color</param>
         /// <param name="by">The maximum amount to vary by</param>
-        /// <returns>A (probably) slightly different colour</returns>
+        /// <returns>A (probably) slightly different color</returns>
         public static System.Drawing.Color Vary(this System.Drawing.Color color, int by = 10)
         {
             by = Rand.Next(-by, by);
@@ -82,33 +82,33 @@ namespace Sledge.Common
         }
 
         /// <summary>
-        /// Make a colour darker
+        /// Make a color darker
         /// </summary>
-        /// <param name="color">The colour</param>
+        /// <param name="color">The color</param>
         /// <param name="by">The amount to darken by</param>
-        /// <returns>A darker colour</returns>
+        /// <returns>A darker color</returns>
         public static System.Drawing.Color Darken(this System.Drawing.Color color, int by = 20)
         {
             return System.Drawing.Color.FromArgb(color.A, Math.Max(0, color.R - by), Math.Max(0, color.G - by), Math.Max(0, color.B - by));
         }
 
         /// <summary>
-        /// Make a colour lighter
+        /// Make a color lighter
         /// </summary>
-        /// <param name="color">The colour</param>
+        /// <param name="color">The color</param>
         /// <param name="by">The amount to lighten by</param>
-        /// <returns>A lighter colour</returns>
+        /// <returns>A lighter color</returns>
         public static System.Drawing.Color Lighten(this System.Drawing.Color color, int by = 20)
         {
             return System.Drawing.Color.FromArgb(color.A, Math.Min(255, color.R + by), Math.Min(255, color.G + by), Math.Min(255, color.B + by));
         }
 
         /// <summary>
-        /// Blend two colours
+        /// Blend two colors
         /// </summary>
-        /// <param name="color">The first colour</param>
-        /// <param name="other">The second colour</param>
-        /// <returns>A blend of the two colours</returns>
+        /// <param name="color">The first color</param>
+        /// <param name="other">The second color</param>
+        /// <returns>A blend of the two colors</returns>
         public static System.Drawing.Color Blend(this System.Drawing.Color color, System.Drawing.Color other)
         {
             return System.Drawing.Color.FromArgb(
@@ -120,11 +120,11 @@ namespace Sledge.Common
         }
 
         /// <summary>
-        /// Get an ideal foreground colour (white or black) if this colour was the background
+        /// Get an ideal foreground color (white or black) if this color was the background
         /// </summary>
-        /// <param name="color">The background colour</param>
+        /// <param name="color">The background color</param>
         /// <returns>White for dark backgrounds, black for light backgrounds</returns>
-        public static System.Drawing.Color GetIdealForegroundColour(this System.Drawing.Color color)
+        public static System.Drawing.Color GetIdealForegroundColor(this System.Drawing.Color color)
         {
             // https://stackoverflow.com/a/1855903
             var luminance = (0.299 * color.R + 0.587 * color.G + 0.114 * color.B) / 255;

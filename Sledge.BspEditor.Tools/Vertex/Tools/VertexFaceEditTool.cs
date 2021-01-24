@@ -227,9 +227,9 @@ namespace Sledge.BspEditor.Tools.Vertex.Tools
                 verts.AddRange(face.Face.Vertices.Select(x => new VertexStandard
                 {
                     Position = x.Position,
-                    Colour = col,
+                    Color = col,
                     Tint = tintCol,
-                    Flags = VertexFlags.FlatColour
+                    Flags = VertexFlags.FlatColor
                 }));
 
                 for (var i = 2; i < face.Face.Vertices.Count; i++)

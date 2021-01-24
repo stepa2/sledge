@@ -76,7 +76,7 @@ namespace Sledge.BspEditor.Tools.Draggable
             var start = camera.WorldToScreen(camera.Expand(b.Start));
             var end = camera.WorldToScreen(camera.Expand(b.End));
 
-            im.AddRectFilled(start.ToVector2(), end.ToVector2(), State.FillColour);
+            im.AddRectFilled(start.ToVector2(), end.ToVector2(), State.FillColor);
 
             if (Handle == ResizeHandle.Center && SnappedMoveOrigin != null)
             {

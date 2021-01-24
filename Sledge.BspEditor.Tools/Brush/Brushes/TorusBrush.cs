@@ -87,7 +87,7 @@ namespace Sledge.BspEditor.Tools.Brush.Brushes
         private Solid MakeSolid(UniqueNumberGenerator generator, IEnumerable<Vector3[]> faces, string texture, System.Drawing.Color col)
         {
             var solid = new Solid(generator.Next("MapObject"));
-            solid.Data.Add(new ObjectColor(Color.GetRandomBrushColour()));
+            solid.Data.Add(new ObjectColor(Color.GetRandomBrushColor()));
 
             foreach (var arr in faces)
             {
@@ -182,7 +182,7 @@ namespace Sledge.BspEditor.Tools.Brush.Brushes
             }
 
             // Create the solids
-            var colour = Color.GetRandomBrushColour();
+            var color = Color.GetRandomBrushColor();
             for (var i = 0; i < ringSides; i++)
             {
                 var vertical = Vector3.UnitZ * heightAdd * i;
@@ -204,7 +204,7 @@ namespace Sledge.BspEditor.Tools.Brush.Brushes
                         faces.Add(new[] { outerPoints[j], nextOuterPoints[j], nextInnerPoints[j], innerPoints[j] }.Select(x => x + vertical).ToArray());
                         faces.Add(new[] { innerPoints[j], innerPoints[nextj], outerPoints[nextj], outerPoints[j] }.Select(x => x + vertical).ToArray());
                         faces.Add(new[] { nextOuterPoints[j], nextOuterPoints[nextj], nextInnerPoints[nextj], nextInnerPoints[j] }.Select(x => x + vertical).ToArray());
-                        yield return MakeSolid(generator, faces, texture, colour);
+                        yield return MakeSolid(generator, faces, texture, color);
                     }
                 }
                 else
@@ -222,7 +222,7 @@ namespace Sledge.BspEditor.Tools.Brush.Brushes
                     // Add the cross section faces
                     faces.Add(points.Reverse().Select(x => x + vertical).ToArray());
                     faces.Add(nextPoints.Select(x => x + vertical).ToArray());
-                    yield return MakeSolid(generator, faces, texture, colour);
+                    yield return MakeSolid(generator, faces, texture, color);
                 }
             }
         }

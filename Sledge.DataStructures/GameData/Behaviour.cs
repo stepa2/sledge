@@ -25,7 +25,7 @@ namespace Sledge.DataStructures.GameData
                 : NumericsExtensions.Parse(Values[first], Values[first + 1], Values[first + 2], NumberStyles.Float, CultureInfo.InvariantCulture);
         }
 
-        public Color GetColour(int index)
+        public Color GetColor(int index)
         {
             var coord = GetVector3(index);
             return coord == null ? Color.White : Color.FromArgb((int) coord.Value.X, (int) coord.Value.Y, (int) coord.Value.Z);

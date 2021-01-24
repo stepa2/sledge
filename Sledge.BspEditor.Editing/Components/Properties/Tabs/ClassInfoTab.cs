@@ -273,7 +273,7 @@ namespace Sledge.BspEditor.Editing.Components.Properties.Tabs
                 lstKeyValues.Items.Add(new ListViewItem(keyText)
                 {
                     Tag = tv,
-                    BackColor = tv.Colour
+                    BackColor = tv.Color
                 }).SubItems.Add(valText);
 
                 if (tv.Key == "angles")
@@ -310,7 +310,7 @@ namespace Sledge.BspEditor.Editing.Components.Properties.Tabs
                 else if (tv.IsRemoved) keyText += " [-]";
                 else if (tv.IsModified) keyText += " [*]";
 
-                lv.BackColor = tv.Colour;
+                lv.BackColor = tv.Color;
                 lv.SubItems[0].Text = keyText;
                 lv.SubItems[1].Text = valText;
 
@@ -589,7 +589,7 @@ namespace Sledge.BspEditor.Editing.Components.Properties.Tabs
                 ? GameDataProperty?.DefaultValue
                 : GameDataProperty?.Options.FirstOrDefault(x => x.Key == Value)?.Description ?? Value;
 
-            public Color Colour
+            public Color Color
             {
                 get
                 {

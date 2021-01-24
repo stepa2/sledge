@@ -57,13 +57,13 @@ namespace Sledge.BspEditor.Editing.Commands.Pointfile
                 verts.Add(new VertexStandard
                 {
                     Position = line.Start,
-                    Colour = new Vector4(r, g, b, 1),
+                    Color = new Vector4(r, g, b, 1),
                     Tint = Vector4.One
                 });
                 verts.Add(new VertexStandard
                 {
                     Position = line.End,
-                    Colour = new Vector4(r, g, b, 1),
+                    Color = new Vector4(r, g, b, 1),
                     Tint = Vector4.One
                 });
             

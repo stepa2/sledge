@@ -29,9 +29,9 @@ namespace Sledge.Rendering.Engine
             remove => Engine.Instance.ViewportDestroyed -= value;
         }
 
-        public void SetClearColour(CameraType cameraType, Color colour)
+        public void SetClearColor(CameraType cameraType, Color color)
         {
-            Engine.Instance.SetClearColour(cameraType, new RgbaFloat(new Vector4(colour.R, colour.G, colour.B, colour.A) / 255));
+            Engine.Instance.SetClearColor(cameraType, new RgbaFloat(new Vector4(color.R, color.G, color.B, color.A) / 255));
         }
 
         public Buffer CreateBuffer()

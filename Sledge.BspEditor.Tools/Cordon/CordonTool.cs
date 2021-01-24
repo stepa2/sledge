@@ -23,8 +23,8 @@ namespace Sledge.BspEditor.Tools.Cordon
         public CordonTool()
         {
             _cordonBox = new CordonBoxDraggableState(this);
-            _cordonBox.BoxColour = Color.Red;
-            _cordonBox.FillColour = Color.FromArgb(/*View.SelectionBoxBackgroundOpacity*/ 64, Color.LightGray);
+            _cordonBox.BoxColor = Color.Red;
+            _cordonBox.FillColor = Color.FromArgb(/*View.SelectionBoxBackgroundOpacity*/ 64, Color.LightGray);
             _cordonBox.State.Changed += CordonBoxChanged;
             States.Add(_cordonBox);
 

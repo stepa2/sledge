@@ -105,11 +105,11 @@ namespace Sledge.BspEditor.Providers
                 var vis = new Visgroup
                 {
                     Name = br.ReadFixedLengthString(Encoding.ASCII, 128),
-                    Colour = br.ReadRGBAColor(),
+                    Color = br.ReadRGBAColor(),
                     ID = br.ReadInt32(),
                     Visible = br.ReadBoolean()
                 };
-                vis.Colour = Color.FromArgb(255, vis.Colour);
+                vis.Color = Color.FromArgb(255, vis.Color);
                 map.NumberGenerator.Seed("Visgroup", vis.ID);
                 br.ReadBytes(3);
                 list.Add(vis);
@@ -344,7 +344,7 @@ namespace Sledge.BspEditor.Providers
             foreach (var visgroup in vis)
             {
                 bw.WriteFixedLengthString(Encoding.ASCII, 128, visgroup.Name);
-                bw.WriteRGBAColor(visgroup.Colour);
+                bw.WriteRGBAColor(visgroup.Color);
                 bw.Write((int) visgroup.ID);
                 bw.Write(visgroup.Visible);
                 bw.Write(new byte[3]); // Unused

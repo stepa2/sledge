@@ -241,7 +241,7 @@ namespace Sledge.BspEditor.Tools.Entity
             if (gd == null) gd = _activeEntity;
             if (gd == null) return;
 
-            var colour = Color.GetDefaultEntityColour();
+            var color = Color.GetDefaultEntityColor();
             var data = await document.Environment.GetGameData();
             if (data != null)
             {
@@ -249,7 +249,7 @@ namespace Sledge.BspEditor.Tools.Entity
                 if (cls != null)
                 {
                     var col = cls.Behaviours.Where(x => x.Name == "color").ToArray();
-                    if (col.Any()) colour = col[0].GetColour(0);
+                    if (col.Any()) color = col[0].GetColor(0);
                 }
             }
 
@@ -258,7 +258,7 @@ namespace Sledge.BspEditor.Tools.Entity
                 Data =
                 {
                     new EntityData { Name = gd },
-                    new ObjectColor(colour),
+                    new ObjectColor(color),
                     new Origin(origin),
                 }
             };
@@ -305,7 +305,7 @@ namespace Sledge.BspEditor.Tools.Entity
                 var points = new VertexStandard[numVertices];
                 var indices = new uint[numWireframeIndices];
 
-                var colour = new Vector4(0, 1, 0, 1);
+                var color = new Vector4(0, 1, 0, 1);
 
                 var vi = 0u;
                 var wi = 0u;
@@ -317,7 +317,7 @@ namespace Sledge.BspEditor.Tools.Entity
                     {
                         points[vi++] = new VertexStandard { 
                             Position = v,
-                            Colour = colour,
+                            Color = color,
                             Tint = Vector4.One
                         };
                     }
@@ -333,12 +333,12 @@ namespace Sledge.BspEditor.Tools.Entity
                 // Draw 3 lines pinpointing the point
                 var lineOffset = vi;
 
-                points[vi++] = new VertexStandard { Position = new Vector3(low , vec.Y, vec.Z), Colour = colour, Tint = Vector4.One };
-                points[vi++] = new VertexStandard { Position = new Vector3(high, vec.Y, vec.Z), Colour = colour, Tint = Vector4.One };
-                points[vi++] = new VertexStandard { Position = new Vector3(vec.X, low , vec.Z), Colour = colour, Tint = Vector4.One };
-                points[vi++] = new VertexStandard { Position = new Vector3(vec.X, high, vec.Z), Colour = colour, Tint = Vector4.One };
-                points[vi++] = new VertexStandard { Position = new Vector3(vec.X, vec.Y, low ), Colour = colour, Tint = Vector4.One };
-                points[vi++] = new VertexStandard { Position = new Vector3(vec.X, vec.Y, high), Colour = colour, Tint = Vector4.One };
+                points[vi++] = new VertexStandard { Position = new Vector3(low , vec.Y, vec.Z), Color = color, Tint = Vector4.One };
+                points[vi++] = new VertexStandard { Position = new Vector3(high, vec.Y, vec.Z), Color = color, Tint = Vector4.One };
+                points[vi++] = new VertexStandard { Position = new Vector3(vec.X, low , vec.Z), Color = color, Tint = Vector4.One };
+                points[vi++] = new VertexStandard { Position = new Vector3(vec.X, high, vec.Z), Color = color, Tint = Vector4.One };
+                points[vi++] = new VertexStandard { Position = new Vector3(vec.X, vec.Y, low ), Color = color, Tint = Vector4.One };
+                points[vi++] = new VertexStandard { Position = new Vector3(vec.X, vec.Y, high), Color = color, Tint = Vector4.One };
 
                 indices[wi++] = lineOffset++;
                 indices[wi++] = lineOffset++;

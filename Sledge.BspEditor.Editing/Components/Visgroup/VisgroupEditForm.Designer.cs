@@ -32,7 +32,7 @@
             this.GroupName = new System.Windows.Forms.TextBox();
             this.NameLabel = new System.Windows.Forms.Label();
             this.ColorLabel = new System.Windows.Forms.Label();
-            this.ColourPanel = new System.Windows.Forms.Panel();
+            this.ColorPanel = new System.Windows.Forms.Panel();
             this.CancelButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
@@ -81,15 +81,15 @@
             this.ColorLabel.TabIndex = 3;
             this.ColorLabel.Text = "Color (click to change)";
             // 
-            // ColourPanel
+            // ColorPanel
             // 
-            this.ColourPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ColourPanel.Enabled = false;
-            this.ColourPanel.Location = new System.Drawing.Point(377, 42);
-            this.ColourPanel.Name = "ColourPanel";
-            this.ColourPanel.Size = new System.Drawing.Size(43, 22);
-            this.ColourPanel.TabIndex = 4;
-            this.ColourPanel.Click += new System.EventHandler(this.ColourClicked);
+            this.ColorPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ColorPanel.Enabled = false;
+            this.ColorPanel.Location = new System.Drawing.Point(377, 42);
+            this.ColorPanel.Name = "ColorPanel";
+            this.ColorPanel.Size = new System.Drawing.Size(43, 22);
+            this.ColorPanel.TabIndex = 4;
+            this.ColorPanel.Click += new System.EventHandler(this.ColorClicked);
             // 
             // CancelButton
             // 
@@ -147,7 +147,7 @@
             this.Controls.Add(this.AddButton);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.CancelButton);
-            this.Controls.Add(this.ColourPanel);
+            this.Controls.Add(this.ColorPanel);
             this.Controls.Add(this.ColorLabel);
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.GroupName);
@@ -169,7 +169,7 @@
         private System.Windows.Forms.TextBox GroupName;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label ColorLabel;
-        private System.Windows.Forms.Panel ColourPanel;
+        private System.Windows.Forms.Panel ColorPanel;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button RemoveButton;

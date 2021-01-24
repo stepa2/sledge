@@ -91,8 +91,8 @@ namespace Sledge.BspEditor.Editing.Components.Visgroup
             var node = new TreeNode(visgroup.Text)
             {
                 StateImageKey = CastCheckState(visgroup.CheckState) + (visgroup.Disabled ? "Disabled" : ""),
-                BackColor = visgroup.Colour,
-                ForeColor = visgroup.Colour.GetIdealForegroundColour(),
+                BackColor = visgroup.Color,
+                ForeColor = visgroup.Color.GetIdealForegroundColor(),
                 Tag = visgroup
             };
 
@@ -230,8 +230,8 @@ namespace Sledge.BspEditor.Editing.Components.Visgroup
 
             node.Text = visgroup.Text;
             node.StateImageKey = CastCheckState(visgroup.CheckState);
-            node.BackColor = visgroup.Colour;
-            node.ForeColor = visgroup.Colour.GetIdealForegroundColour();
+            node.BackColor = visgroup.Color;
+            node.ForeColor = visgroup.Color.GetIdealForegroundColor();
             if (node.Tag is VisgroupItem i) i.Tag = visgroup.Tag;
             
             VisgroupTree.Invalidate();

@@ -271,7 +271,7 @@
             "VisgroupEditForm": {
                 "Title": "Visgroup Editor",
                 "NameLabel": "Name",
-                "ColorLabel": "Colour (click to change)",
+                "ColorLabel": "Color (click to change)",
                 "AddButton": "Add group",
                 "RemoveButton": "Remove group",
                 "OkButton": "OK",

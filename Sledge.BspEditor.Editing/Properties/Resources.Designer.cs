@@ -63,9 +63,9 @@ namespace Sledge.BspEditor.Editing.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Button_ColourPicker {
+        internal static System.Drawing.Bitmap Button_ColorPicker {
             get {
-                object obj = ResourceManager.GetObject("Button_ColourPicker", resourceCulture);
+                object obj = ResourceManager.GetObject("Button_ColorPicker", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

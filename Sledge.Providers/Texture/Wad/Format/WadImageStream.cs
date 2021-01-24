@@ -57,14 +57,14 @@ namespace Sledge.Providers.Texture.Wad.Format
                 bw.Write(infoSize); // Header size
                 bw.Write(_entry.Width);
                 bw.Write(_entry.Height);
-                bw.Write((short) 1); // Number of colour planes
+                bw.Write((short) 1); // Number of color planes
                 bw.Write((short) 8); // Color depth
                 bw.Write(0); // Compression method
                 bw.Write(_entry.Width * _entry.Height); // Image data size
                 bw.Write(0); // Horizontal resolution
                 bw.Write(0); // Vertical resolution
-                bw.Write(_entry.PaletteSize); // Colours used
-                bw.Write(_entry.PaletteSize); // "Important" colours used
+                bw.Write(_entry.PaletteSize); // Colors used
+                bw.Write(_entry.PaletteSize); // "Important" colors used
 
                 br.BaseStream.Position = startIndex + (_entry.PaletteDataOffset - _entry.Offset);
                 var paletteData = br.ReadBytes((int)(_entry.PaletteSize * 3));

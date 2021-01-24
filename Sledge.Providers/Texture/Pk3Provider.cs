@@ -298,12 +298,12 @@ namespace Sledge.Providers.Texture
                 br.BaseStream.Seek(0, SeekOrigin.Begin);
 
                 var idLength = br.ReadByte();
-                var colourMapType = br.ReadByte();
+                var colorMapType = br.ReadByte();
                 var imageType = br.ReadByte();
-                var firstColourMapEntry = br.ReadUInt16();
-                var colourMapLength = br.ReadUInt16();
-                var colourMapEntrySize = br.ReadByte();
-                var colourMapBytesPerPixel = (int)Math.Ceiling(colourMapEntrySize / 8f);
+                var firstColorMapEntry = br.ReadUInt16();
+                var colorMapLength = br.ReadUInt16();
+                var colorMapEntrySize = br.ReadByte();
+                var colorMapBytesPerPixel = (int)Math.Ceiling(colorMapEntrySize / 8f);
                 var xOrigin = br.ReadUInt16();
                 var yOrigin = br.ReadUInt16();
                 var width = br.ReadUInt16();
@@ -315,15 +315,15 @@ namespace Sledge.Providers.Texture
                 var directionTop = (imageDescriptor & 0x20) == 0x20;
                 var directionRight = (imageDescriptor & 0x10) == 0x10;
 
-                var hasMap = colourMapType == 0x01;
+                var hasMap = colorMapType == 0x01;
                 var compressed = (imageType & 0x08) == 0x08;
-                var typeColourMapped = (imageType & 0x07) == 0x01;
-                var typeTrueColour = (imageType & 0x07) == 0x02;
+                var typeColorMapped = (imageType & 0x07) == 0x01;
+                var typeTrueColor = (imageType & 0x07) == 0x02;
                 var typeBlackAndWhite = (imageType & 0x07) == 0x03;
 
                 br.BaseStream.Seek(idLength, SeekOrigin.Current);
 
-                var colourMap = br.ReadBytes(colourMapLength * colourMapBytesPerPixel);
+                var colorMap = br.ReadBytes(colorMapLength * colorMapBytesPerPixel);
 
                 byte[] imageData;
 
@@ -359,14 +359,14 @@ namespace Sledge.Providers.Texture
 
                 if (hasMap)
                 {
-                    var newImageData = new byte[width * height * colourMapBytesPerPixel];
+                    var newImageData = new byte[width * height * colorMapBytesPerPixel];
                     for (int i = 0; i < width * height; i++)
                     {
                         var idx = imageData[i];
-                        Array.Copy(colourMap, idx * colourMapBytesPerPixel, newImageData, i * colourMapBytesPerPixel, colourMapBytesPerPixel);
+                        Array.Copy(colorMap, idx * colorMapBytesPerPixel, newImageData, i * colorMapBytesPerPixel, colorMapBytesPerPixel);
                     }
-                    bitsPerPixel = colourMapEntrySize;
-                    bytesPerPixel = colourMapBytesPerPixel;
+                    bitsPerPixel = colorMapEntrySize;
+                    bytesPerPixel = colorMapBytesPerPixel;
                     imageData = newImageData;
                 }
 

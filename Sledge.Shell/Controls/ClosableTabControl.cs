@@ -131,12 +131,12 @@ namespace Sledge.Shell.Controls
             var p = PointToClient(MousePosition);
             var hoverClose = closeRect.Contains(p);
             var hover = rect.Contains(p);
-            var backColour = tab.BackColor;
+            var backColor = tab.BackColor;
 
-            if (selected) backColour = ControlPaint.Light(backColour, 1);
-            else if (hover) backColour = ControlPaint.Light(backColour, 0.8f);
+            if (selected) backColor = ControlPaint.Light(backColor, 1);
+            else if (hover) backColor = ControlPaint.Light(backColor, 0.8f);
 
-            using (var b = new SolidBrush(backColour))
+            using (var b = new SolidBrush(backColor))
             {
                 g.FillPolygon(b, points);
             }

@@ -41,7 +41,7 @@ namespace Sledge.BspEditor.Editing.Components.Compile.Specification
             }
         }
 
-        public Color ColourValue
+        public Color ColorValue
         {
             get
             {
@@ -49,7 +49,7 @@ namespace Sledge.BspEditor.Editing.Components.Compile.Specification
                 float r, g, b;
                 if (spl.Length == 3 && float.TryParse(spl[0], out r) && float.TryParse(spl[1], out g) && float.TryParse(spl[2], out b))
                 {
-                    if (Type == CompileParameterType.ColourFloat)
+                    if (Type == CompileParameterType.ColorFloat)
                     {
                         r *= 255;
                         g *= 255;

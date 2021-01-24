@@ -74,7 +74,7 @@ namespace Sledge.BspEditor.Tools.Brush.Brushes
             faces.Add(points.ToArray());
 
             var solid = new Solid(generator.Next("MapObject"));
-            solid.Data.Add(new ObjectColor(Color.GetRandomBrushColour()));
+            solid.Data.Add(new ObjectColor(Color.GetRandomBrushColor()));
             foreach (var arr in faces)
             {
                 var face = new Face(generator.Next("Face"))

@@ -45,7 +45,7 @@ namespace Sledge.Providers.Texture.Wad
             var palette = bmp.Palette;
 
             // Two transparency types: "blue" transparency and "decal" transparency
-            // Decal transparency is all greyscale and doesn't contain any of palette #255 colour
+            // Decal transparency is all greyscale and doesn't contain any of palette #255 color
             /*
                 var blueTransparency = false;
                 for (var i = 0; i < palette.Entries.Length - 1; i++)

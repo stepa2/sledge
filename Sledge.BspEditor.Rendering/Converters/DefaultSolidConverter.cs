@@ -55,7 +55,7 @@ namespace Sledge.BspEditor.Rendering.Converters
             var points = new VertexStandard[numVertices];
             var indices = new uint[numSolidIndices + numWireframeIndices];
             
-            var colour = (obj.IsSelected ? Color.Red : obj.Data.GetOne<ObjectColor>()?.Color ?? Color.White).ToVector4();
+            var color = (obj.IsSelected ? Color.Red : obj.Data.GetOne<ObjectColor>()?.Color ?? Color.White).ToVector4();
 
             //var c = obj.IsSelected ? Color.FromArgb(255, 128, 128) : Color.White;
             //var tint = new Vector4(c.R, c.G, c.B, c.A) / 255f;
@@ -85,10 +85,10 @@ namespace Sledge.BspEditor.Rendering.Converters
                 switch (rendermode)
                 {
                     case renderModeColor:
-                        // Flat colour, use render colour and force it to run through the alpha tested pipeline
+                        // Flat color, use render color and force it to run through the alpha tested pipeline
                         var rendercolor = parentEntity.EntityData.GetVector3("rendercolor") / 255f ?? Vector3.One;
                         tint = new Vector4(rendercolor, renderamt);
-                        flags |= VertexFlags.FlatColour | VertexFlags.AlphaTested;
+                        flags |= VertexFlags.FlatColor | VertexFlags.AlphaTested;
                         pipeline = PipelineType.TexturedAlpha;
                         entityHasTransparency = true;
                         break;
@@ -129,7 +129,7 @@ namespace Sledge.BspEditor.Rendering.Converters
                 var h = t?.Height ?? 0;
 
                 var tintModifier = new Vector4(1, 1, 1, opacity);
-                var extraFlags = t == null ? VertexFlags.FlatColour : VertexFlags.None;
+                var extraFlags = t == null ? VertexFlags.FlatColor : VertexFlags.None;
 
                 var offs = vi;
                 var numFaceVerts = (uint)face.Vertices.Count;
@@ -143,7 +143,7 @@ namespace Sledge.BspEditor.Rendering.Converters
                     points[vi++] = new VertexStandard
                     {
                         Position = v,
-                        Colour = colour,
+                        Color = color,
                         Normal = normal,
                         Texture = new Vector2(textureCoords[i].Item2, textureCoords[i].Item3),
                         Tint = tint * tintModifier,

@@ -32,14 +32,14 @@
             }
         },
         "Renderer": {
-            "PerspectiveBackgroundColour": "3D view background colour",
-            "OrthographicBackgroundColour": "2D view background colour",
-            "FractionalGridLineColour": "Grid line colour for fractional values",
-            "StandardGridLineColour": "Grid line colour for regular lines",
-            "PrimaryGridLineColour": "Grid line colour for primary highlights",
-            "SecondaryGridLineColour": "Grid line colour for secondary highlights",
-            "AxisGridLineColour": "Grid line colour for axis lines",
-            "BoundaryGridLineColour": "Grid line colour for world boundaries"
+            "PerspectiveBackgroundColor": "3D view background color",
+            "OrthographicBackgroundColor": "2D view background color",
+            "FractionalGridLineColor": "Grid line color for fractional values",
+            "StandardGridLineColor": "Grid line color for regular lines",
+            "PrimaryGridLineColor": "Grid line color for primary highlights",
+            "SecondaryGridLineColor": "Grid line color for secondary highlights",
+            "AxisGridLineColor": "Grid line color for axis lines",
+            "BoundaryGridLineColor": "Grid line color for world boundaries"
         } 
     },
     "Components": {

@@ -51,7 +51,7 @@ namespace Sledge.BspEditor.Rendering.Converters
             var indices = new uint[numSolidIndices + numWireframeIndices];
 
             var c = obj.IsSelected ? Color.Red : obj.Data.GetOne<ObjectColor>()?.Color ?? Color.Magenta;
-            var colour = new Vector4(c.R, c.G, c.B, c.A) / 255f;
+            var color = new Vector4(c.R, c.G, c.B, c.A) / 255f;
             
             var flags = obj.IsSelected ? VertexFlags.SelectiveTransformed : VertexFlags.None;
 
@@ -68,11 +68,11 @@ namespace Sledge.BspEditor.Rendering.Converters
                     points[vi++] = new VertexStandard
                     {
                         Position = v,
-                        Colour = colour,
+                        Color = color,
                         Normal = normal,
                         Texture = Vector2.Zero,
                         Tint = Vector4.One,
-                        Flags = flags | VertexFlags.FlatColour
+                        Flags = flags | VertexFlags.FlatColor
                     };
                 }
 

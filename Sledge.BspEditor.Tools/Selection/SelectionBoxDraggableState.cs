@@ -221,13 +221,13 @@ namespace Sledge.BspEditor.Tools.Selection
 
         protected override void DrawBox(IViewport viewport, OrthographicCamera camera, I2DRenderer im, Vector3 start, Vector3 end)
         {
-            im.AddRectFilled(start.ToVector2(), end.ToVector2(), GetRenderFillColour());
-            im.AddRect(start.ToVector2(), end.ToVector2(), GetRenderBoxColour());
+            im.AddRectFilled(start.ToVector2(), end.ToVector2(), GetRenderFillColor());
+            im.AddRect(start.ToVector2(), end.ToVector2(), GetRenderBoxColor());
         }
 
-        protected override Color GetRenderFillColour()
+        protected override Color GetRenderFillColor()
         {
-            var c = base.GetRenderFillColour();
+            var c = base.GetRenderFillColor();
             var a = Math.Min(100, Math.Max(0, _tool.SelectionBoxBackgroundOpacity));
             return Color.FromArgb(a, c);
         }

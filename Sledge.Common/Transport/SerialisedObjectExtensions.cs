@@ -53,7 +53,7 @@ namespace Sledge.Common.Transport
         }
 
         /// <summary>
-        /// Set a property value to a colour
+        /// Set a property value to a color
         /// </summary>
         /// <param name="so">The serialised object</param>
         /// <param name="key">The property key to set</param>
@@ -67,11 +67,11 @@ namespace Sledge.Common.Transport
         }
 
         /// <summary>
-        /// Get a colour property from the serialised object
+        /// Get a color property from the serialised object
         /// </summary>
         /// <param name="so">The serialised object</param>
         /// <param name="key">The property key to get</param>
-        /// <returns>The property value as a colour</returns>
+        /// <returns>The property value as a color</returns>
         public static System.Drawing.Color GetColor(this SerialisedObject so, string key)
         {
             var str = Get<string>(so, key) ?? "";

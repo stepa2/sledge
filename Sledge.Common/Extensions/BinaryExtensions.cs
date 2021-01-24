@@ -188,23 +188,23 @@ namespace Sledge.Common.Extensions
             bw.Write((float) dec);
         }
 
-        // Colours
+        // Colors
 
         /// <summary>
-        /// Read an RGB colour as 3 bytes
+        /// Read an RGB color as 3 bytes
         /// </summary>
         /// <param name="br">Binary reader</param>
-        /// <returns>The colour which was read</returns>
+        /// <returns>The color which was read</returns>
         public static System.Drawing.Color ReadRGBColor(this BinaryReader br)
         {
             return System.Drawing.Color.FromArgb(255, br.ReadByte(), br.ReadByte(), br.ReadByte());
         }
 
         /// <summary>
-        /// Write an RGB colour as 3 bytes
+        /// Write an RGB color as 3 bytes
         /// </summary>
         /// <param name="bw">Binary writer</param>
-        /// <param name="c">The colour to write</param>
+        /// <param name="c">The color to write</param>
         public static void WriteRGBColor(this BinaryWriter bw, System.Drawing.Color c)
         {
             bw.Write(c.R);
@@ -213,10 +213,10 @@ namespace Sledge.Common.Extensions
         }
 
         /// <summary>
-        /// Read an RGBA colour as 4 bytes
+        /// Read an RGBA color as 4 bytes
         /// </summary>
         /// <param name="br">Binary reader</param>
-        /// <returns>The colour which was read</returns>
+        /// <returns>The color which was read</returns>
         public static System.Drawing.Color ReadRGBAColor(this BinaryReader br)
         {
             var r = br.ReadByte();
@@ -227,10 +227,10 @@ namespace Sledge.Common.Extensions
         }
 
         /// <summary>
-        /// Write an RGBA colour as 4 bytes
+        /// Write an RGBA color as 4 bytes
         /// </summary>
         /// <param name="bw">Binary writer</param>
-        /// <param name="c">The colour to write</param>
+        /// <param name="c">The color to write</param>
         public static void WriteRGBAColor(this BinaryWriter bw, System.Drawing.Color c)
         {
             bw.Write(c.R);

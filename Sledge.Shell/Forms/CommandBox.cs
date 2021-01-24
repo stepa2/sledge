@@ -70,9 +70,9 @@ namespace Sledge.Shell.Forms
             UpdateFilter();
         }
 
-        private static readonly Color ButtonBackColour = Color.FromArgb(255, 234, 240, 255);
-        private static readonly Color ButtonOverColour = Color.FromArgb(255, 253, 244, 191);
-        private static readonly Color ButtonOverBorderColour = Color.FromArgb(255, 229, 195, 101);
+        private static readonly Color ButtonBackColor = Color.FromArgb(255, 234, 240, 255);
+        private static readonly Color ButtonOverColor = Color.FromArgb(255, 253, 244, 191);
+        private static readonly Color ButtonOverBorderColor = Color.FromArgb(255, 229, 195, 101);
 
         private async void UpdateFilter()
         {
@@ -157,7 +157,7 @@ namespace Sledge.Shell.Forms
                 
                 Anchor = AnchorStyles.Left | AnchorStyles.Right;
                 Height = 25;
-                BackColor = ButtonBackColour;
+                BackColor = ButtonBackColor;
                 Padding = new Padding(1);
                 Margin = Padding.Empty;
 
@@ -165,7 +165,7 @@ namespace Sledge.Shell.Forms
                 {
                     Text = activator.Name,
                     Dock = DockStyle.Fill,
-                    BackColor = ButtonBackColour,
+                    BackColor = ButtonBackColor,
                     TextAlign = ContentAlignment.MiddleLeft
                 };
                 Controls.Add(_label);
@@ -176,8 +176,8 @@ namespace Sledge.Shell.Forms
 
             private void UpdateActive()
             {
-                _label.BackColor = _active ? ButtonOverColour : ButtonBackColour;
-                BackColor = _active ? ButtonOverBorderColour : ButtonBackColour;
+                _label.BackColor = _active ? ButtonOverColor : ButtonBackColor;
+                BackColor = _active ? ButtonOverBorderColor : ButtonBackColor;
             }
         }
     }

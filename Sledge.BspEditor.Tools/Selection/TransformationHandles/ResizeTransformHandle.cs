@@ -54,7 +54,7 @@ namespace Sledge.BspEditor.Tools.Selection.TransformationHandles
                 var start = camera.WorldToScreen(BoxState.Start);
                 var end = camera.WorldToScreen(BoxState.End);
 
-                im.AddRectFilled(start.ToVector2(), end.ToVector2(), State.FillColour);
+                im.AddRectFilled(start.ToVector2(), end.ToVector2(), State.FillColor);
 
                 if (SnappedMoveOrigin != null)
                 {

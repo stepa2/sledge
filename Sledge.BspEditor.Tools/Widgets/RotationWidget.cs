@@ -342,8 +342,8 @@ namespace Sledge.BspEditor.Tools.Widgets
                 builder.Append(
                     new[]
                     {
-                        new VertexStandard {Position = start, Colour = col, Tint = Vector4.One},
-                        new VertexStandard {Position = end, Colour = col, Tint = Vector4.One},
+                        new VertexStandard {Position = start, Color = col, Tint = Vector4.One},
+                        new VertexStandard {Position = end, Color = col, Tint = Vector4.One},
                     },
                     new uint[] { 0, 1 },
                     new[]

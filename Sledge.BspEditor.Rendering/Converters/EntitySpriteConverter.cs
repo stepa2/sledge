@@ -62,7 +62,7 @@ namespace Sledge.BspEditor.Rendering.Converters
             if (entity.IsSelected) flags |= VertexFlags.SelectiveTransformed;
 
             builder.Append(
-                new [] { new VertexStandard { Position = entity.Origin, Normal = new Vector3(width, height, 0), Colour = Vector4.One, Tint = tint, Flags = flags } },
+                new [] { new VertexStandard { Position = entity.Origin, Normal = new Vector3(width, height, 0), Color = Vector4.One, Tint = tint, Flags = flags } },
                 new [] { 0u },
                 new [] { new BufferGroup(PipelineType.BillboardAlpha, CameraType.Perspective, entity.BoundingBox.Center, texture, 0, 1) }
             );

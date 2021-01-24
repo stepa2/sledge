@@ -47,7 +47,7 @@ namespace Sledge.BspEditor.Editing.Components.Visgroup
             {
                 var dg = doc.Map.Data.Get<Vg>().FirstOrDefault(x => x.ID == g.ID);
                 if (dg == null) newVisgroups.Add(g);
-                else if (dg.Name != g.Name || dg.Colour != g.Colour) changedVisgroups.Add(g);
+                else if (dg.Name != g.Name || dg.Color != g.Color) changedVisgroups.Add(g);
             }
             deletedVisgroups.AddRange(_deleted.Where(x => doc.Map.Data.Get<Vg>().Any(y => y.ID == x.ID)));
         }
@@ -61,21 +61,21 @@ namespace Sledge.BspEditor.Editing.Components.Visgroup
         {
             return _visgroups.Select(x => new VisgroupItem(x.Name)
             {
-                Colour = x.Colour,
+                Color = x.Color,
                 Tag = x
             });
         }
 
         private void SelectionChanged(object sender, VisgroupItem visgroupItem)
         {
-            ColourPanel.Enabled = RemoveButton.Enabled = GroupName.Enabled = visgroupItem != null;
-            ColourPanel.BackColor = SystemColors.Control;
+            ColorPanel.Enabled = RemoveButton.Enabled = GroupName.Enabled = visgroupItem != null;
+            ColorPanel.BackColor = SystemColors.Control;
             if (visgroupItem != null)
             {
                 var visgroup = (Vg) visgroupItem.Tag;
                 GroupName.Text = visgroup.Name;
-                ColourPanel.BackColor = visgroup.Colour;
-                ColourPanel.ForeColor = visgroup.Colour.GetIdealForegroundColour();
+                ColorPanel.BackColor = visgroup.Color;
+                ColorPanel.ForeColor = visgroup.Color.GetIdealForegroundColor();
             }
             else
             {
@@ -94,7 +94,7 @@ namespace Sledge.BspEditor.Editing.Components.Visgroup
             var newGroup = new Vg
             {
                                    ID = GetNewId(),
-                                   Colour = Color.GetRandomLightColour(),
+                                   Color = Color.GetRandomLightColor(),
                                    Name = "New Group",
                                    Visible = true
                                };
@@ -127,18 +127,18 @@ namespace Sledge.BspEditor.Editing.Components.Visgroup
             VisgroupPanel.UpdateVisgroupState(visgroup);
         }
 
-        private void ColourClicked(object sender, EventArgs e)
+        private void ColorClicked(object sender, EventArgs e)
         {
             var visgroup = VisgroupPanel.SelectedVisgroup;
             if (visgroup == null) return;
             
             var vg = (Vg) visgroup.Tag;
-            using (var cp = new ColorDialog {Color = vg.Colour})
+            using (var cp = new ColorDialog {Color = vg.Color})
             {
                 if (cp.ShowDialog() != DialogResult.OK) return;
 
-                ColourPanel.BackColor = visgroup.Colour = vg.Colour = cp.Color;
-                ColourPanel.ForeColor = vg.Colour.GetIdealForegroundColour();
+                ColorPanel.BackColor = visgroup.Color = vg.Color = cp.Color;
+                ColorPanel.ForeColor = vg.Color.GetIdealForegroundColor();
                 VisgroupPanel.UpdateVisgroupState(visgroup);
             }
         }

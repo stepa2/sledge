@@ -116,7 +116,7 @@ namespace Sledge.BspEditor.Editing.Commands
                     Data =
                     {
                         new EntityData { Name = defaultEntityClass.Name },
-                        new ObjectColor(Color.GetDefaultEntityColour())
+                        new ObjectColor(Color.GetDefaultEntityColor())
                     }
                 };
                 ops.Add(new Attach(document.Map.Root.ID, existing));

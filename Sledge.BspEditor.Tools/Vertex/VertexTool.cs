@@ -306,7 +306,7 @@ namespace Sledge.BspEditor.Tools.Vertex
                     points[vi++] = new VertexStandard
                     {
                         Position = v.Position,
-                        Colour = Vector4.One,
+                        Color = Vector4.One,
                         Normal = normal,
                         Texture = new Vector2(textureCoords[i].Item2, textureCoords[i].Item3),
                         Tint = tint * tintModifier,

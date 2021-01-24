@@ -8,7 +8,7 @@ namespace Sledge.BspEditor.Editing.Components.Visgroup
         public VisgroupItem Parent { get; set; }
         public string Text { get; set; }
         public CheckState CheckState { get; set; }
-        public Color Colour { get; set; }
+        public Color Color { get; set; }
         public object Tag { get; set; }
         public bool Disabled { get; set; }
 
@@ -16,7 +16,7 @@ namespace Sledge.BspEditor.Editing.Components.Visgroup
         {
             Text = text;
             CheckState = CheckState.Checked;
-            Colour = Color.Transparent;
+            Color = Color.Transparent;
         }
     }
 }

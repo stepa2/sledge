@@ -17,7 +17,7 @@ namespace Sledge.BspEditor.Primitives.MapData
         public long ID { get; set; }
         public string Name { get; set; }
         public bool Visible { get; set; } = true;
-        public Color Colour { get; set; }
+        public Color Color { get; set; }
         public ISet<IMapObject> Objects { get; set; }
 
         public Visgroup()
@@ -40,7 +40,7 @@ namespace Sledge.BspEditor.Primitives.MapData
             ID = info.GetInt64("ID");
             Name = info.GetString("Name");
             Visible = info.GetBoolean("Visible");
-            Colour = Color.FromArgb(info.GetInt32("Colour"));
+            Color = Color.FromArgb(info.GetInt32("Color"));
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
@@ -57,7 +57,7 @@ namespace Sledge.BspEditor.Primitives.MapData
                 ID = ID,
                 Name = Name,
                 Visible = Visible,
-                Colour = Colour,
+                Color = Color,
             };
         }
 
@@ -68,7 +68,7 @@ namespace Sledge.BspEditor.Primitives.MapData
                 ID = numberGenerator.Next("Visgroup"),
                 Name = Name,
                 Visible = Visible,
-                Colour = Colour,
+                Color = Color,
             };
         }
 
@@ -78,7 +78,7 @@ namespace Sledge.BspEditor.Primitives.MapData
             v.Set("ID", ID);
             v.Set("Name", Name);
             v.Set("Visible", Visible);
-            v.SetColor("Colour", Colour);
+            v.SetColor("Color", Color);
             return v;
         }
     }

@@ -47,8 +47,8 @@ namespace Sledge.BspEditor.Tools.Vertex.Tools
             _boxState = new BoxDraggableState(this)
             {
                 RenderBoxText = false,
-                BoxColour = Color.Orange,
-                FillColour = Color.FromArgb(64, Color.DodgerBlue)
+                BoxColor = Color.Orange,
+                FillColor = Color.FromArgb(64, Color.DodgerBlue)
             };
             _boxState.DragStarted += (sender, args) =>
             {

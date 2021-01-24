@@ -33,8 +33,8 @@ namespace Sledge.Rendering.Engine
         private readonly Dictionary<PipelineGroup, List<IPipeline>> _pipelines;
         private readonly CommandList _commandList;
 
-        private RgbaFloat _clearColourPerspective;
-        private RgbaFloat _clearColourOrthographic;
+        private RgbaFloat _clearColorPerspective;
+        private RgbaFloat _clearColorOrthographic;
 
         private Engine()
         {
@@ -51,7 +51,7 @@ namespace Sledge.Rendering.Engine
 
             _commandList = Device.ResourceFactory.CreateCommandList();
 
-            SetClearColour(CameraType.Both, RgbaFloat.Black);
+            SetClearColor(CameraType.Both, RgbaFloat.Black);
 
             _timer = new Stopwatch();
             _token = new CancellationTokenSource();
@@ -98,13 +98,13 @@ namespace Sledge.Rendering.Engine
             Features.FeatureLevel = fl;
         }
 
-        internal void SetClearColour(CameraType type, RgbaFloat colour)
+        internal void SetClearColor(CameraType type, RgbaFloat color)
         {
             lock (_lock)
             {
-                if (type == CameraType.Both) _clearColourOrthographic = _clearColourPerspective = colour;
-                else if (type == CameraType.Orthographic) _clearColourOrthographic = colour;
-                else _clearColourPerspective = colour;
+                if (type == CameraType.Both) _clearColorOrthographic = _clearColorPerspective = color;
+                else if (type == CameraType.Orthographic) _clearColorOrthographic = color;
+                else _clearColorPerspective = color;
             }
         }
 
@@ -232,8 +232,8 @@ namespace Sledge.Rendering.Engine
             _commandList.ClearDepthStencil(1);
 
             var cc = renderTarget.Camera.Type == CameraType.Perspective
-                ? _clearColourPerspective
-                : _clearColourOrthographic;
+                ? _clearColorPerspective
+                : _clearColorOrthographic;
             _commandList.ClearColorTarget(0, cc);
 
             //foreach (var group in _pipelines.OrderBy(x => (int) x.Key))

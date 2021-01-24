@@ -44,13 +44,13 @@ namespace Sledge.Providers.Texture.Spr
                 var palette = br.ReadBytes(paletteSize * 3);
 
                 if (paletteSize > 256) paletteSize = 256; // Don't accept anything higher
-                var colours = new Color[256];
+                var colors = new Color[256];
                 for (var i = 0; i < paletteSize; i++)
                 {
                     var r = palette[i * 3 + 0];
                     var g = palette[i * 3 + 1];
                     var b = palette[i * 3 + 2];
-                    colours[i] = Color.FromArgb(255, r, g, b);
+                    colors[i] = Color.FromArgb(255, r, g, b);
                 }
 
                 // Only read the first frame.
@@ -70,10 +70,10 @@ namespace Sledge.Providers.Texture.Spr
 
                 // Pre-process the palette
                 var pal = bitmap.Palette;
-                var last = colours[255];
+                var last = colors[255];
                 for (var i = 0; i < paletteSize; i++)
                 {
-                    var c = colours[i];
+                    var c = colors[i];
                     if (texFormat == SpriteRenderMode.Additive)
                     {
                         var a = (int)((c.R + c.G + c.B) / 3f);

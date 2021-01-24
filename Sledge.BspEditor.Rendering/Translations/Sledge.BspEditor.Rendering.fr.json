@@ -33,8 +33,8 @@
             "ForcePowerOfTwoTextureSizes": "Désactiver les textures dont la taille n'est pas une puissance de 2 (mode de compatibilité)",
             "ShowPerspectiveGrid": "Activer la grille 3D",
             "PerspectiveGridSpacing": "Espacement de la grille 3D",
-            "PerspectiveBackgroundColour": "Couleur d'arrière-plan dans la vue 3D",
-            "OrthographicBackgroundColour": "Couleur d'arrière-plan dans la vue 2D",
+            "PerspectiveBackgroundColor": "Couleur d'arrière-plan dans la vue 3D",
+            "OrthographicBackgroundColor": "Couleur d'arrière-plan dans la vue 2D",
             "PointSize": "Tailles décimales dans les vues 2D"
         }
     },

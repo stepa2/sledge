@@ -741,16 +741,16 @@ Specification
 			Name "Ambient Light"
 			Flag "-ambient"
 			Description "Set ambient world light."
-			Type "ColourFloat"
+			Type "ColorFloat"
 			Value "0 0 0"
 		}
 
 		Parameter
 		{
 			Name "Gamma Color"
-			Flag "-colourgamma"
+			Flag "-colorgamma"
 			Description "Sets different gamma values for r, g, b."
-			Type "ColourFloat"
+			Type "ColorFloat"
 			Value "0 0 0"
 		}
 
@@ -759,25 +759,25 @@ Specification
 			Name "Jitter"
 			Flag "-jitter"
 			Description "Adds noise, monochromatic, for dithering."
-			Type "Colour"
+			Type "Color"
 			Value "0 0 0"
 		}
 
 		Parameter
 		{
 			Name "Jitter Color"
-			Flag "-colourjitter"
-			Description "Adds noise, independent colours, for dithering."
-			Type "Colour"
+			Flag "-colorjitter"
+			Description "Adds noise, independent colors, for dithering."
+			Type "Color"
 			Value "0 0 0"
 		}
 
 		Parameter
 		{
 			Name "Scale Color"
-			Flag "-colourscale"
+			Flag "-colorscale"
 			Description "Sets different lightscale values for r, g ,b."
-			Type "ColourFloat"
+			Type "ColorFloat"
 			Value "0 0 0"
 		}
 	}

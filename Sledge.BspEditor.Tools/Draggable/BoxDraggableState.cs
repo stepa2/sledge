@@ -20,8 +20,8 @@ namespace Sledge.BspEditor.Tools.Draggable
     {
         public BaseDraggableTool Tool { get; set; }
 
-        public Color BoxColour { get; set; }
-        public Color FillColour { get; set; }
+        public Color BoxColor { get; set; }
+        public Color FillColor { get; set; }
         public Box RememberedDimensions { get; set; }
         internal BoxState State { get; set; }
 
@@ -141,8 +141,8 @@ namespace Sledge.BspEditor.Tools.Draggable
                 var points = new VertexStandard[numVertices];
                 var indices = new uint[numWireframeIndices];
 
-                var col = GetRenderBoxColour();
-                var colour = new Vector4(col.R, col.G, col.B, 255) / 255;
+                var col = GetRenderBoxColor();
+                var color = new Vector4(col.R, col.G, col.B, 255) / 255;
 
                 var vi = 0u;
                 var wi = 0u;
@@ -155,7 +155,7 @@ namespace Sledge.BspEditor.Tools.Draggable
                         points[vi++] = new VertexStandard
                         {
                             Position = v,
-                            Colour = colour,
+                            Color = color,
                             Tint = Vector4.One
                         };
                     }
@@ -191,14 +191,14 @@ namespace Sledge.BspEditor.Tools.Draggable
             return ShouldDrawBox();
         }
 
-        protected virtual Color GetRenderFillColour()
+        protected virtual Color GetRenderFillColor()
         {
-            return FillColour;
+            return FillColor;
         }
 
-        protected virtual Color GetRenderBoxColour()
+        protected virtual Color GetRenderBoxColor()
         {
-            return BoxColour;
+            return BoxColor;
         }
 
         public override void Render(IViewport viewport, OrthographicCamera camera, Vector3 worldMin, Vector3 worldMax, I2DRenderer im)
@@ -223,8 +223,8 @@ namespace Sledge.BspEditor.Tools.Draggable
             start = Vector3.Max(start, new Vector3(-100, -100, -100));
             end = Vector3.Min(end, new Vector3(viewport.Width + 100, viewport.Height + 100, 100));
             
-            im.AddRectFilled(start.ToVector2(), end.ToVector2(), GetRenderFillColour());
-            im.AddRect(start.ToVector2(), end.ToVector2(), GetRenderBoxColour());
+            im.AddRectFilled(start.ToVector2(), end.ToVector2(), GetRenderFillColor());
+            im.AddRect(start.ToVector2(), end.ToVector2(), GetRenderBoxColor());
         }
 
         protected virtual void DrawBoxText(IViewport viewport, OrthographicCamera camera, I2DRenderer im, Vector3 start, Vector3 end)
@@ -254,8 +254,8 @@ namespace Sledge.BspEditor.Tools.Draggable
             vHeight = Vector3.Clamp(vHeight, new Vector3(0, mWidth.Y + padding, 0), new Vector3(camera.Width - mWidth.X - padding, camera.Height - mHeight.Y - padding, 0));
             
             // Draw the strings
-            im.AddText(vWidth.ToVector2(), GetRenderBoxColour(), FontType.Large, widthText);
-            im.AddText(vHeight.ToVector2(), GetRenderBoxColour(), FontType.Large, heightText);
+            im.AddText(vWidth.ToVector2(), GetRenderBoxColor(), FontType.Large, widthText);
+            im.AddText(vHeight.ToVector2(), GetRenderBoxColor(), FontType.Large, heightText);
             
         }
 

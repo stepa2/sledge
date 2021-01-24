@@ -18,15 +18,15 @@ namespace Sledge.BspEditor.Rendering
         [Import] private Lazy<EngineInterface> _engine;
 
         // Renderer settings
-        [Setting] public static Color PerspectiveBackgroundColour { get; set; } = Color.Black;
-        [Setting] public static Color OrthographicBackgroundColour { get; set; } = Color.Black;
+        [Setting] public static Color PerspectiveBackgroundColor { get; set; } = Color.Black;
+        [Setting] public static Color OrthographicBackgroundColor { get; set; } = Color.Black;
 
-        [Setting] public static Color FractionalGridLineColour { get; set; } = Color.FromArgb(32, 32, 32);
-        [Setting] public static Color StandardGridLineColour { get; set; } = Color.FromArgb(75, 75, 75);
-        [Setting] public static Color PrimaryGridLineColour { get; set; } = Color.FromArgb(115, 115, 115);
-        [Setting] public static Color SecondaryGridLineColour { get; set; } = Color.FromArgb(100, 46, 0);
-        [Setting] public static Color AxisGridLineColour { get; set; } = Color.FromArgb(0, 100, 100);
-        [Setting] public static Color BoundaryGridLineColour { get; set; } = Color.Red;
+        [Setting] public static Color FractionalGridLineColor { get; set; } = Color.FromArgb(32, 32, 32);
+        [Setting] public static Color StandardGridLineColor { get; set; } = Color.FromArgb(75, 75, 75);
+        [Setting] public static Color PrimaryGridLineColor { get; set; } = Color.FromArgb(115, 115, 115);
+        [Setting] public static Color SecondaryGridLineColor { get; set; } = Color.FromArgb(100, 46, 0);
+        [Setting] public static Color AxisGridLineColor { get; set; } = Color.FromArgb(0, 100, 100);
+        [Setting] public static Color BoundaryGridLineColor { get; set; } = Color.Red;
 
         // Settings container
 
@@ -34,22 +34,22 @@ namespace Sledge.BspEditor.Rendering
 
         public IEnumerable<SettingKey> GetKeys()
         {
-            yield return new SettingKey("Rendering", "PerspectiveBackgroundColour", typeof(Color));
-            yield return new SettingKey("Rendering", "OrthographicBackgroundColour", typeof(Color));
+            yield return new SettingKey("Rendering", "PerspectiveBackgroundColor", typeof(Color));
+            yield return new SettingKey("Rendering", "OrthographicBackgroundColor", typeof(Color));
 
-            yield return new SettingKey("Rendering/Grid", "FractionalGridLineColour", typeof(Color));
-            yield return new SettingKey("Rendering/Grid", "StandardGridLineColour", typeof(Color));
-            yield return new SettingKey("Rendering/Grid", "PrimaryGridLineColour", typeof(Color));
-            yield return new SettingKey("Rendering/Grid", "SecondaryGridLineColour", typeof(Color));
-            yield return new SettingKey("Rendering/Grid", "AxisGridLineColour", typeof(Color));
-            yield return new SettingKey("Rendering/Grid", "BoundaryGridLineColour", typeof(Color));
+            yield return new SettingKey("Rendering/Grid", "FractionalGridLineColor", typeof(Color));
+            yield return new SettingKey("Rendering/Grid", "StandardGridLineColor", typeof(Color));
+            yield return new SettingKey("Rendering/Grid", "PrimaryGridLineColor", typeof(Color));
+            yield return new SettingKey("Rendering/Grid", "SecondaryGridLineColor", typeof(Color));
+            yield return new SettingKey("Rendering/Grid", "AxisGridLineColor", typeof(Color));
+            yield return new SettingKey("Rendering/Grid", "BoundaryGridLineColor", typeof(Color));
         }
 
         public void LoadValues(ISettingsStore store)
         {
             store.LoadInstance(this);
-            _engine.Value.SetClearColour(CameraType.Perspective, PerspectiveBackgroundColour);
-            _engine.Value.SetClearColour(CameraType.Orthographic, OrthographicBackgroundColour);
+            _engine.Value.SetClearColor(CameraType.Perspective, PerspectiveBackgroundColor);
+            _engine.Value.SetClearColor(CameraType.Orthographic, OrthographicBackgroundColor);
         }
 
         public void StoreValues(ISettingsStore store)

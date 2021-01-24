@@ -80,7 +80,7 @@ namespace Sledge.BspEditor.Rendering.Converters
                 {
                     Position = mo.Data.GetOne<Origin>()?.Location ?? mo.BoundingBox.Center,
                     Normal = new Vector3(9, 9, 0),
-                    Colour = color.ToVector4(),
+                    Color = color.ToVector4(),
                     Tint = Vector4.One
                 }
             ).Union(
@@ -92,7 +92,7 @@ namespace Sledge.BspEditor.Rendering.Converters
                 {
                     Position = mo.Data.GetOne<Origin>()?.Location ?? mo.BoundingBox.Center,
                     Normal = new Vector3(9, 9, 0),
-                    Colour = color.ToVector4(),
+                    Color = color.ToVector4(),
                     Tint = Vector4.One,
                     Flags = VertexFlags.SelectiveTransformed
                 }

@@ -110,7 +110,7 @@ namespace Sledge.BspEditor.Editing.Components.Visgroup
                 list.Add(new VisgroupItem(v.Name)
                 {
                     CheckState = GetVisibilityCheckState(v.Objects),
-                    Colour = v.Colour,
+                    Color = v.Color,
                     Tag = v
                 });
             }

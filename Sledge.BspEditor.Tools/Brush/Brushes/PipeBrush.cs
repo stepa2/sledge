@@ -96,7 +96,7 @@ namespace Sledge.BspEditor.Tools.Brush.Brushes
             }
 
             // Create the solids
-            var colour = Color.GetRandomBrushColour();
+            var color = Color.GetRandomBrushColor();
             var z = new Vector3(0, 0, height).Round(roundDecimals);
             for (var i = 0; i < numSides; i++)
             {
@@ -108,7 +108,7 @@ namespace Sledge.BspEditor.Tools.Brush.Brushes
                 faces.Add(new[] { inner[i], inner[i] + z, outer[i] + z, outer[i] });
                 faces.Add(new[] { inner[next] + z, outer[next] + z, outer[i] + z, inner[i] + z });
                 faces.Add(new[] { inner[i], outer[i], outer[next], inner[next] });
-                yield return MakeSolid(generator, faces, texture, colour);
+                yield return MakeSolid(generator, faces, texture, color);
             }
         }
     }

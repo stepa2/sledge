@@ -124,7 +124,7 @@ namespace Sledge.BspEditor.Editing.Components.Properties.Tabs
                 {
                     Tag = visgroup,
                     CheckState = cs,
-                    Colour = visgroup.Colour
+                    Color = visgroup.Color
                 }, cs);
             }
 

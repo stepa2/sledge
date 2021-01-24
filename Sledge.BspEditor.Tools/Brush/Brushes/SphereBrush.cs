@@ -46,7 +46,7 @@ namespace Sledge.BspEditor.Tools.Brush.Brushes
         private Solid MakeSolid(UniqueNumberGenerator generator, IEnumerable<Vector3[]> faces, string texture, System.Drawing.Color col)
         {
             var solid = new Solid(generator.Next("MapObject"));
-            solid.Data.Add(new ObjectColor(Color.GetRandomBrushColour()));
+            solid.Data.Add(new ObjectColor(Color.GetRandomBrushColor()));
 
             foreach (var arr in faces)
             {
@@ -122,7 +122,7 @@ namespace Sledge.BspEditor.Tools.Brush.Brushes
                     }
                 }
             }
-            yield return MakeSolid(generator, faces, texture, Color.GetRandomBrushColour());
+            yield return MakeSolid(generator, faces, texture, Color.GetRandomBrushColor());
         }
     }
 }

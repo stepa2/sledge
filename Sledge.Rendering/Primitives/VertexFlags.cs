@@ -20,9 +20,9 @@ namespace Sledge.Rendering.Primitives
         SelectiveTransformed = 1 << 0,
 
         /// <summary>
-        /// The texture sample will be replaced with the vertex colour
+        /// The texture sample will be replaced with the vertex color
         /// </summary>
-        FlatColour = 1 << 1,
+        FlatColor = 1 << 1,
 
         /// <summary>
         /// Semi-transparent texture samples are rounded to 0 or 1

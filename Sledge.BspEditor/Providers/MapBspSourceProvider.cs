@@ -193,7 +193,7 @@ namespace Sledge.BspEditor.Providers
 
                     var poly = new Polyhedron(faces.Select(x => x.Plane));
                     var ret = new Solid(generator.Next("MapObject"));
-                    ret.Data.Add(new ObjectColor(Color.GetRandomBrushColour()));
+                    ret.Data.Add(new ObjectColor(Color.GetRandomBrushColor()));
 
                     foreach (var face in faces)
                     {
@@ -266,7 +266,7 @@ namespace Sledge.BspEditor.Providers
                 Data =
                 {
                     new EntityData(),
-                    new ObjectColor(Color.GetRandomBrushColour())
+                    new ObjectColor(Color.GetRandomBrushColor())
                 }
             };
             string line;

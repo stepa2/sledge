@@ -100,15 +100,15 @@ namespace Sledge.BspEditor.Tools.Selection
         public SelectTool()
         {
             _selectionBox = new SelectionBoxDraggableState(this);
-            _selectionBox.BoxColour = Color.Yellow;
-            _selectionBox.FillColour = Color.FromArgb(SelectionBoxBackgroundOpacity, Color.White);
+            _selectionBox.BoxColor = Color.Yellow;
+            _selectionBox.FillColor = Color.FromArgb(SelectionBoxBackgroundOpacity, Color.White);
             _selectionBox.State.Changed += SelectionBoxChanged;
             States.Add(_selectionBox);
             Children.AddRange(_selectionBox.Widgets);
 
             _emptyBox = new BoxDraggableState(this);
-            _emptyBox.BoxColour = Color.Yellow;
-            _emptyBox.FillColour = Color.FromArgb(SelectionBoxBackgroundOpacity, Color.White);
+            _emptyBox.BoxColor = Color.Yellow;
+            _emptyBox.FillColor = Color.FromArgb(SelectionBoxBackgroundOpacity, Color.White);
             _emptyBox.State.Changed += EmptyBoxChanged;
             _emptyBox.DragEnded += (sender, args) =>
             {

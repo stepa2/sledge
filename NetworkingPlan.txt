@@ -144,7 +144,7 @@ Created [
 Edited [
     int VisgroupID
     string Name
-    Color Colour
+    Color Color
 ]
 Deleted [
     int VisgroupID

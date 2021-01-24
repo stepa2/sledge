@@ -45,7 +45,7 @@ namespace Sledge.BspEditor.Rendering.Converters
             var points = new VertexStandard[numVertices];
             var indices = new uint[numWireframeIndices];
 
-            var colour = new Vector4(1, 0, 0, 1);
+            var color = new Vector4(1, 0, 0, 1);
 
             var vi = 0u;
             var wi = 0u;
@@ -59,7 +59,7 @@ namespace Sledge.BspEditor.Rendering.Converters
                     points[vi++] = new VertexStandard
                     {
                         Position = v,
-                        Colour = colour,
+                        Color = color,
                         Normal = normal,
                         Texture = Vector2.Zero,
                         Tint = Vector4.One

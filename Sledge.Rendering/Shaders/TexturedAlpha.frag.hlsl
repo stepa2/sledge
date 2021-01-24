@@ -15,12 +15,12 @@ static const float ambient = 0.8f;
 Texture2D Texture;
 SamplerState Sampler;
 
-static const uint Flags_FlatColour = 1 << 1;
+static const uint Flags_FlatColor = 1 << 1;
 
 float4 main(FragmentIn input) : SV_Target0
 {
     float4 tex = Texture.Sample(Sampler, input.fTexture) * input.fTint;
-    tex = lerp(tex, input.fTint, (input.fFlags.x & Flags_FlatColour) / Flags_FlatColour);
+    tex = lerp(tex, input.fTint, (input.fFlags.x & Flags_FlatColor) / Flags_FlatColor);
 
     float incidence = dot(input.fNormal.xyz, lightDirection);
     float lighting = lightIntensity * incidence + ambient;

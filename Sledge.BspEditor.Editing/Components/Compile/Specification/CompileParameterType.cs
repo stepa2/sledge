@@ -8,7 +8,7 @@
         Choice,
         File,
         Folder,
-        Colour,
-        ColourFloat
+        Color,
+        ColorFloat
     }
 }

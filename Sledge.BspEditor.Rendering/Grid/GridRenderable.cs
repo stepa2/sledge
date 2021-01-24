@@ -118,7 +118,7 @@ namespace Sledge.BspEditor.Rendering.Grid
                 {
                     Position = line.Line.Start,
                     Normal = normal,
-                    Colour = col,
+                    Color = col,
                     Texture = Vector2.Zero,
                     Tint = Vector4.One
                 });
@@ -126,7 +126,7 @@ namespace Sledge.BspEditor.Rendering.Grid
                 {
                     Position = line.Line.End,
                     Normal = normal,
-                    Colour = col,
+                    Color = col,
                     Texture = Vector2.Zero,
                     Tint = Vector4.One
                 });
@@ -160,17 +160,17 @@ namespace Sledge.BspEditor.Rendering.Grid
             switch (type)
             {
                 case GridLineType.Fractional:
-                    return Renderer.FractionalGridLineColour;
+                    return Renderer.FractionalGridLineColor;
                 case GridLineType.Standard:
-                    return Renderer.StandardGridLineColour;
+                    return Renderer.StandardGridLineColor;
                 case GridLineType.Axis:
-                    return Renderer.AxisGridLineColour;
+                    return Renderer.AxisGridLineColor;
                 case GridLineType.Primary:
-                    return Renderer.PrimaryGridLineColour;
+                    return Renderer.PrimaryGridLineColor;
                 case GridLineType.Secondary:
-                    return Renderer.SecondaryGridLineColour;
+                    return Renderer.SecondaryGridLineColor;
                 case GridLineType.Boundary:
-                    return Renderer.BoundaryGridLineColour;
+                    return Renderer.BoundaryGridLineColor;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(type), type, null);
             }

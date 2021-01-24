@@ -221,7 +221,7 @@ namespace Sledge.BspEditor.Providers
 
             // See if the solid is valid
             var solid = new Solid(map.NumberGenerator.Next("MapObject"));
-            solid.Data.Add(new ObjectColor(Color.GetRandomBrushColour()));
+            solid.Data.Add(new ObjectColor(Color.GetRandomBrushColor()));
             solid.Data.AddRange(faces);
             if (solid.IsValid())
             {
@@ -276,7 +276,7 @@ namespace Sledge.BspEditor.Providers
         private Solid SolidifyFace(Map map, Face face)
         {
             var solid = new Solid(map.NumberGenerator.Next("MapObject"));
-            solid.Data.Add(new ObjectColor(Color.GetRandomBrushColour()));
+            solid.Data.Add(new ObjectColor(Color.GetRandomBrushColor()));
             solid.Data.Add(face);
 
             var center = face.Vertices.Aggregate(Vector3.Zero, (sum, v) => sum + v) / face.Vertices.Count;

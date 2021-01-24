@@ -19,7 +19,7 @@ namespace Sledge.BspEditor.Editing.Components.Properties.SmartEdit
             _textBox.TextChanged += (sender, e) => OnValueChanged();
             Controls.Add(_textBox);
 
-            var btn = new Button { Image = Resources.Button_ColourPicker, Text = "", Margin = new Padding(1), Width = 24, Height = 24 };
+            var btn = new Button { Image = Resources.Button_ColorPicker, Text = "", Margin = new Padding(1), Width = 24, Height = 24 };
             btn.Click += OpenColorPicker;
             Controls.Add(btn);
         }

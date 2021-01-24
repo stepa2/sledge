@@ -113,10 +113,10 @@ namespace Sledge.BspEditor.Providers
                 {
                     Name = vg.Get("name", ""),
                     ID = vg.Get("visgroupid", -1),
-                    Colour = vg.GetColor("color"),
+                    Color = vg.GetColor("color"),
                     Visible = true
                 };
-                if (v.Colour.GetBrightness() < 0.001f) v.Colour = Color.GetRandomBrushColour();
+                if (v.Color.GetBrightness() < 0.001f) v.Color = Color.GetRandomBrushColor();
                 if (v.ID < 0) continue;
                 map.Data.Add(v);
             }
@@ -298,7 +298,7 @@ namespace Sledge.BspEditor.Providers
             {
                 var vgo = new SerialisedObject("visgroup");
                 vgo.Set("visgroupid", visgroup.ID);
-                vgo.SetColor("color", visgroup.Colour);
+                vgo.SetColor("color", visgroup.Color);
                 so.Children.Add(vgo);
             }
             list.Add(so);
@@ -889,7 +889,7 @@ namespace Sledge.BspEditor.Providers
 
             public void Apply(IMapObject obj)
             {
-                var c = Color.GetBrightness() > 0 ? Color : Color.GetRandomBrushColour();
+                var c = Color.GetBrightness() > 0 ? Color : Sledge.Common.Color.GetRandomBrushColor();
                 obj.Data.Replace(new ObjectColor(c));
                 foreach (var id in VisgroupIDs)
                 {

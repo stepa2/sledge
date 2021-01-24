@@ -258,7 +258,7 @@ namespace Sledge.BspEditor.Controls.Layout
         {
             var pos = TableLayout.GetPositionFromControl((Control)sender);
             _dragStart = new Point(pos.Column, pos.Row);
-            ColourPanels(_dragStart);
+            ColorPanels(_dragStart);
 
             // This call blocks!
             ((Control)sender).DoDragDrop(_dragStart, DragDropEffects.Link);
@@ -270,12 +270,12 @@ namespace Sledge.BspEditor.Controls.Layout
             var pos = TableLayout.GetPositionFromControl((Control)sender);
             var point = new Point(pos.Column, pos.Row);
             if (e.Data.GetDataPresent(typeof(Point))) e.Effect = DragDropEffects.Link;
-            ColourPanels(point);
+            ColorPanels(point);
         }
 
         private void PanelDragLeave(object sender, EventArgs e)
         {
-            ColourPanels(_dragStart);
+            ColorPanels(_dragStart);
         }
 
         private void PanelDragDrop(object sender, DragEventArgs e)
@@ -297,7 +297,7 @@ namespace Sledge.BspEditor.Controls.Layout
             _dragStart = Point.Empty;
         }
 
-        private void ColourPanels(Point point)
+        private void ColorPanels(Point point)
         {
             foreach (Control control in TableLayout.Controls) control.BackColor = Color.Black;
             if (point.X == _dragStart.X && point.Y == _dragStart.Y)

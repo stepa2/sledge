@@ -83,8 +83,8 @@ namespace Sledge.BspEditor.Tools.Brush
         public BrushTool()
         {
             box = new BoxDraggableState(this);
-            box.BoxColour = Color.Turquoise;
-            box.FillColour = Color.FromArgb(_selectionBoxBackgroundOpacity, Color.Green);
+            box.BoxColor = Color.Turquoise;
+            box.FillColor = Color.FromArgb(_selectionBoxBackgroundOpacity, Color.Green);
             box.State.Changed += BoxChanged;
             States.Add(box);
         }
@@ -309,7 +309,7 @@ namespace Sledge.BspEditor.Tools.Brush
             var indices = new uint[numSolidIndices + numWireframeIndices];
 
             var c = Color.Turquoise;
-            var colour = new Vector4(c.R, c.G, c.B, c.A) / 255f;
+            var color = new Vector4(c.R, c.G, c.B, c.A) / 255f;
 
             c = Color.FromArgb(192, Color.Turquoise);
             var tint = new Vector4(c.R, c.G, c.B, c.A) / 255f;
@@ -337,11 +337,11 @@ namespace Sledge.BspEditor.Tools.Brush
                     points[vi++] = new VertexStandard
                     {
                         Position = v,
-                        Colour = colour,
+                        Color = color,
                         Normal = normal,
                         Texture = new Vector2(textureCoords[i].Item2, textureCoords[i].Item3),
                         Tint = tint,
-                        Flags = t == null ? VertexFlags.FlatColour : VertexFlags.None
+                        Flags = t == null ? VertexFlags.FlatColor : VertexFlags.None
                     };
                 }
 

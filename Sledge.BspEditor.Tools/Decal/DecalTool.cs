@@ -86,7 +86,7 @@ namespace Sledge.BspEditor.Tools.Decal
                         Name = gd.Name,
                         Properties = {{"texture", texture}}
                     },
-                    new ObjectColor(Color.GetRandomBrushColour()),
+                    new ObjectColor(Color.GetRandomBrushColor()),
                     new Origin(origin)
                 }
             };

@@ -253,14 +253,14 @@ namespace Sledge.BspEditor.Editing.Components.Compile
                         };
                         controls.Add(folderButton);
                         break;
-                    case CompileParameterType.Colour:
-                    case CompileParameterType.ColourFloat:
+                    case CompileParameterType.Color:
+                    case CompileParameterType.ColorFloat:
                         var cpanel = new Panel
                         {
                             Width = 40,
                             Height = 20,
                             Margin = new Padding(0),
-                            BackColor = Parameter.ColourValue,
+                            BackColor = Parameter.ColorValue,
                             BorderStyle = BorderStyle.FixedSingle
                         };
                         cpanel.Click += (s, e) =>
@@ -314,13 +314,13 @@ namespace Sledge.BspEditor.Editing.Components.Compile
                     case CompileParameterType.Folder:
                         var folder = Controls.OfType<TextBox>().FirstOrDefault(x => String.Equals(x.Tag as string, "Folder"));
                         return '"' + (folder == null ? "" : folder.Text) + '"';
-                    case CompileParameterType.Colour:
-                    case CompileParameterType.ColourFloat:
+                    case CompileParameterType.Color:
+                    case CompileParameterType.ColorFloat:
                         var c = Color.Black;
-                        var colour = Controls.OfType<Panel>().FirstOrDefault();
-                        if (colour != null) c = colour.BackColor;
+                        var color = Controls.OfType<Panel>().FirstOrDefault();
+                        if (color != null) c = color.BackColor;
                         return String.Join(" ",
-                            new[] {c.R, c.G, c.B}.Select(x => Parameter.Type == CompileParameterType.ColourFloat
+                            new[] {c.R, c.G, c.B}.Select(x => Parameter.Type == CompileParameterType.ColorFloat
                                 ? (x / 255f).ToString("0.##")
                                 : x.ToString(CultureInfo.InvariantCulture)));
                     default:
@@ -355,16 +355,16 @@ namespace Sledge.BspEditor.Editing.Components.Compile
                         var folder = Controls.OfType<TextBox>().FirstOrDefault(x => String.Equals(x.Tag as string, "Folder"));
                         if (folder != null) folder.Text = val;
                         break;
-                    case CompileParameterType.Colour:
-                    case CompileParameterType.ColourFloat:
-                        var colour = Controls.OfType<Panel>().FirstOrDefault();
-                        if (colour == null) break;
+                    case CompileParameterType.Color:
+                    case CompileParameterType.ColorFloat:
+                        var color = Controls.OfType<Panel>().FirstOrDefault();
+                        if (color == null) break;
                         var spl = (val ?? "").Split(' ');
                         float r, g, b;
                         var c = Color.Black;
                         if (spl.Length == 3 && float.TryParse(spl[0], out r) && float.TryParse(spl[1], out g) && float.TryParse(spl[2], out b))
                         {
-                            if (Parameter.Type == CompileParameterType.ColourFloat)
+                            if (Parameter.Type == CompileParameterType.ColorFloat)
                             {
                                 r *= 255;
                                 g *= 255;
@@ -372,7 +372,7 @@ namespace Sledge.BspEditor.Editing.Components.Compile
                             }
                             c = Color.FromArgb((int) r, (int) g, (int) b);
                         }
-                        colour.BackColor = c;
+                        color.BackColor = c;
                         break;
                 }
             }
@@ -398,8 +398,8 @@ namespace Sledge.BspEditor.Editing.Components.Compile
                     case CompileParameterType.Folder:
                         if (data.Count > 1) SetValue(data[1]);
                         break;
-                    case CompileParameterType.Colour:
-                    case CompileParameterType.ColourFloat:
+                    case CompileParameterType.Color:
+                    case CompileParameterType.ColorFloat:
                         if (data.Count > 3) SetValue(data[1] + ' ' + data[2] + ' ' + data[3]);
                         break;
                 }

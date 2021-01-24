@@ -420,11 +420,12 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Resources\Button_ColourPicker.png" />
+    <None Include="Resources\Button_ColorPicker.png" />
     <Content Include="Resources\Menu_AutosizeViews.png" />
     <Content Include="Resources\Menu_Carve.png" />
     <Content Include="Resources\Menu_CenterSelection2D.png" />

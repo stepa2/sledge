@@ -28,7 +28,7 @@ namespace Sledge.BspEditor.Tools.Brush.Brushes
         public IEnumerable<IMapObject> Create(UniqueNumberGenerator idGenerator, Box box, string texture, int roundDecimals)
         {
             var solid = new Solid(idGenerator.Next("MapObject"));
-            solid.Data.Add(new ObjectColor(Color.GetRandomBrushColour()));
+            solid.Data.Add(new ObjectColor(Color.GetRandomBrushColor()));
 
             foreach (var arr in box.GetBoxFaces())
             {

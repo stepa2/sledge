@@ -15,15 +15,15 @@ static const float ambient = 0.8f;
 Texture2D Texture;
 SamplerState Sampler;
 
-static const uint Flags_FlatColour = 1 << 1;
+static const uint Flags_FlatColor = 1 << 1;
 static const uint Flags_AlphaTested = 1 << 2;
 
 float4 main(FragmentIn input) : SV_Target0
 {
     float4 tex = Texture.Sample(Sampler, input.fTexture);
 
-    // flat colour flag: texture sample replaced with colour
-    tex = lerp(tex, input.fColor, (input.fFlags.x & Flags_FlatColour) / Flags_FlatColour);
+    // flat color flag: texture sample replaced with color
+    tex = lerp(tex, input.fColor, (input.fFlags.x & Flags_FlatColor) / Flags_FlatColor);
 
     // alpha tested flag: alpha < 0.5 is discarded
     // if not enabled the alpha value will be set to 1

@@ -31,16 +31,16 @@ namespace Sledge.BspEditor.Rendering.Converters
             var points = new[]
             {
                 // X axis - red
-                new VertexStandard { Position = Vector3.Zero, Colour = Vector4.UnitX + Vector4.UnitW },
-                new VertexStandard { Position = Vector3.UnitX * 100, Colour = Vector4.UnitX + Vector4.UnitW },
+                new VertexStandard { Position = Vector3.Zero, Color = Vector4.UnitX + Vector4.UnitW },
+                new VertexStandard { Position = Vector3.UnitX * 100, Color = Vector4.UnitX + Vector4.UnitW },
 
                 // Y axis - green
-                new VertexStandard { Position = Vector3.Zero, Colour = Vector4.UnitY + Vector4.UnitW },
-                new VertexStandard { Position = Vector3.UnitY * 100, Colour = Vector4.UnitY + Vector4.UnitW },
+                new VertexStandard { Position = Vector3.Zero, Color = Vector4.UnitY + Vector4.UnitW },
+                new VertexStandard { Position = Vector3.UnitY * 100, Color = Vector4.UnitY + Vector4.UnitW },
 
                 // Z axis - blue
-                new VertexStandard { Position = Vector3.Zero, Colour = Vector4.UnitZ + Vector4.UnitW },
-                new VertexStandard { Position = Vector3.UnitZ * 100, Colour = Vector4.UnitZ + Vector4.UnitW },
+                new VertexStandard { Position = Vector3.Zero, Color = Vector4.UnitZ + Vector4.UnitW },
+                new VertexStandard { Position = Vector3.UnitZ * 100, Color = Vector4.UnitZ + Vector4.UnitW },
             };
 
             var indices = new uint[] { 0, 1, 2, 3, 4, 5 };

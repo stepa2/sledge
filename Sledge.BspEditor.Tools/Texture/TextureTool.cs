@@ -288,7 +288,7 @@ namespace Sledge.BspEditor.Tools.Texture
             var groups = new List<BufferGroup>();
 
             var hideFaceMask = ShouldHideFaceMask;
-            var selectionColour = Color.FromArgb(32, Color.Red).ToVector4();
+            var selectionColor = Color.FromArgb(32, Color.Red).ToVector4();
 
             // Add selection highlights
             if (!hideFaceMask)
@@ -301,9 +301,9 @@ namespace Sledge.BspEditor.Tools.Texture
                     verts.AddRange(face.Vertices.Select(x => new VertexStandard
                     {
                         Position = x, 
-                        Colour = Vector4.One, 
-                        Tint = selectionColour,
-                        Flags = VertexFlags.FlatColour
+                        Color = Vector4.One, 
+                        Tint = selectionColor,
+                        Flags = VertexFlags.FlatColor
                     }));
 
                     for (var i = 2; i < face.Vertices.Count; i++)
@@ -320,16 +320,16 @@ namespace Sledge.BspEditor.Tools.Texture
             }
 
             // Add wireframes - selection outlines and texture axes
-            var lineColour = Color.Yellow.ToVector4();
-            var uAxisColour = Color.Yellow.ToVector4();
-            var vAxisColour = Color.Lime.ToVector4();
+            var lineColor = Color.Yellow.ToVector4();
+            var uAxisColor = Color.Yellow.ToVector4();
+            var vAxisColor = Color.Lime.ToVector4();
             var wfIndOffs = indices.Count;
             foreach (var face in sel)
             {
                 var offs = verts.Count;
 
                 // outlines
-                verts.AddRange(face.Vertices.Select(x => new VertexStandard { Position = x, Colour = lineColour, Tint = Vector4.One }));
+                verts.AddRange(face.Vertices.Select(x => new VertexStandard { Position = x, Color = lineColor, Tint = Vector4.One }));
                 for (var i = 0; i < face.Vertices.Count; i++)
                 {
                     indices.Add(offs + i);
@@ -342,10 +342,10 @@ namespace Sledge.BspEditor.Tools.Texture
                 var vEnd = lineStart + face.Texture.VAxis * 20;
 
                 offs = verts.Count;
-                verts.Add(new VertexStandard { Position = lineStart, Colour = uAxisColour, Tint = Vector4.One });
-                verts.Add(new VertexStandard { Position = uEnd, Colour = uAxisColour, Tint = Vector4.One });
-                verts.Add(new VertexStandard { Position = lineStart, Colour = vAxisColour, Tint = Vector4.One });
-                verts.Add(new VertexStandard { Position = vEnd, Colour = vAxisColour, Tint = Vector4.One });
+                verts.Add(new VertexStandard { Position = lineStart, Color = uAxisColor, Tint = Vector4.One });
+                verts.Add(new VertexStandard { Position = uEnd, Color = uAxisColor, Tint = Vector4.One });
+                verts.Add(new VertexStandard { Position = lineStart, Color = vAxisColor, Tint = Vector4.One });
+                verts.Add(new VertexStandard { Position = vEnd, Color = vAxisColor, Tint = Vector4.One });
                 indices.Add(offs + 0);
                 indices.Add(offs + 1);
                 indices.Add(offs + 2);
