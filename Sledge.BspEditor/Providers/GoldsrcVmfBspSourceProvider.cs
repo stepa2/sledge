@@ -25,7 +25,7 @@ using PVector3 = Sledge.DataStructures.Geometric.Precision.Vector3;
 namespace Sledge.BspEditor.Providers
 {
     [Export(typeof(IBspSourceProvider))]
-    public class VmfBspSourceProvider : IBspSourceProvider
+    public class GoldsrcVmfBspSourceProvider : IBspSourceProvider
     {
         [Import] private SerialisedObjectFormatter _formatter;
         [Import] private MapElementFactory _factory;
@@ -42,7 +42,7 @@ namespace Sledge.BspEditor.Providers
         public IEnumerable<Type> SupportedDataTypes => SupportedTypes;
 
         [ImportingConstructor]
-        public VmfBspSourceProvider([Import] Lazy<SerialisedObjectFormatter> formatter, [Import] Lazy<MapElementFactory> factory, [Import] Lazy<SquareGridFactory> squareGridFactory)
+        public GoldsrcVmfBspSourceProvider([Import] Lazy<SerialisedObjectFormatter> formatter, [Import] Lazy<MapElementFactory> factory, [Import] Lazy<SquareGridFactory> squareGridFactory)
         {
             _formatter = formatter.Value;
             _factory = factory.Value;
@@ -51,7 +51,7 @@ namespace Sledge.BspEditor.Providers
 
         public IEnumerable<FileExtensionInfo> SupportedFileExtensions { get; } = new[]
         {
-            new FileExtensionInfo("Valve map format", ".vmf", ".vmx"), 
+            new FileExtensionInfo("Goldsource Valve map format", ".vmf", ".vmx"), 
         };
 
         public async Task<BspFileLoadResult> Load(Stream stream, IEnvironment environment)
@@ -72,17 +72,15 @@ namespace Sledge.BspEditor.Providers
                     foreach (var o in native.Children)
                     {
                         if (o.Name == nameof(Root))
-                        {
                             map.Root.Unclone((Root) _factory.Deserialise(o));
-                        }
                         else
-                        {
                             map.Data.Add((IMapData) _factory.Deserialise(o));
-                        }
                     }
                 }
                 else
                 {
+                    
+
                     // Load a VHE4 VMF format
                     LoadVisgroups(map, so.FirstOrDefault(x => x.Name == "visgroups"));
                     LoadWorld(map, so);
