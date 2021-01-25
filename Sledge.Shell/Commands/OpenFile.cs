@@ -41,7 +41,12 @@ namespace Sledge.Shell.Commands
 
         public async Task Invoke(IContext context, CommandParameters parameters)
         {
-            var filter = _loaders.Select(x => x.Value).Select(x => x.FileTypeDescription + "|" + String.Join(";", x.SupportedFileExtensions.SelectMany(e => e.Extensions).Select(e => "*" + e))).ToList();
+            var filter = _loaders.Select(lazy => lazy.Value).SelectMany(
+                docLoader => docLoader.SupportedFileExtensions, 
+                (docLoader, exts) => $"{exts.Description}|"
+                                     + string.Join(";",exts.Extensions.Select(ext => $"*{ext}"))
+                                     ).ToList();
+
             filter.Add("All files|*.*");
             using (var ofd = new OpenFileDialog { Filter = String.Join("|", filter)})
             {
